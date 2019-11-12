@@ -1,7 +1,6 @@
-import React from 'react';
-import {Button} from "bootstrap/js/src";
+import React ,  { Component } from 'react';
 
-export default class NewCustomer extends React.Component{
+class Customer extends Component{
   state = {
     firstName: "",
     surname:"",
@@ -16,19 +15,6 @@ export default class NewCustomer extends React.Component{
     this.state({
       [e.target.name]: e.target.value
       });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    this.props.onSubmit(this.state);
-    this.state({
-      firstName: "",
-      surname:"",
-      birthDate:"",
-      phone:"",
-      mail:"",
-      bankAcount:""
-    });
   };
 
   render() {
@@ -76,9 +62,9 @@ export default class NewCustomer extends React.Component{
           value={this.state.bankAcount}
           onChange={ e => this.change(e)}
         />
-        <br/>
-        <button onClick={}/>
       </form>
     )
   }
 }
+
+export default Customer;

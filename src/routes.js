@@ -1,5 +1,4 @@
 import React from 'react';
-import NewCustomer from "./components/TabsCustomer/NewCustomer";
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
@@ -31,7 +30,7 @@ const SimpleLineIcons = React.lazy(() => import('./views/Icons/SimpleLineIcons')
 const Alerts = React.lazy(() => import('./views/Notifications/Alerts'));
 const Badges = React.lazy(() => import('./views/Notifications/Badges'));
 const Modals = React.lazy(() => import('./views/Notifications/Modals'));
-const NewCustomer = React.lazy(() => import('./views/Theme/NewCustomer'));
+const Customer = React.lazy(() => import('./views/Theme/Customer'));
 const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
@@ -41,8 +40,8 @@ const User = React.lazy(() => import('./views/Users/User'));
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/theme', exact: true, name: 'Theme', component: Colors },
-  { path: '/customer/newCustomer', name: 'New Customer', component: NewCustomer },
+  { path: '/theme', exact: true, name: 'Theme', component: Customer },
+  { path: '/customer/Customer', name: 'Customer', component: Customer },
   { path: '/theme/typography', name: 'Typography', component: Typography },
   { path: '/base', exact: true, name: 'Base', component: Cards },
   { path: '/base/cards', name: 'Cards', component: Cards },

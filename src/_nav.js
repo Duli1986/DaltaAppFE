@@ -20,7 +20,7 @@ export default {
     },
     {
       name: 'Nový Zákazník',
-      url: '/customer/newCustomer',
+      url: '/customer/Customer',
     },
     {
       name: 'Karta Zákazníka',
