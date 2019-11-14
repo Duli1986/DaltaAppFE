@@ -16,6 +16,10 @@ const Page500 = React.lazy(() => import('./views/Pages/Page500'));
 
 class App extends Component {
 
+  state = {
+    fields: {}
+  };
+
   render() {
     return (
       <HashRouter>

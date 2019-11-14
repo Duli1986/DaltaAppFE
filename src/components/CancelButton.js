@@ -1,14 +1,31 @@
 import React ,  { Component } from 'react';
-import {CardBody, Col, Form, FormGroup, Input, Label} from "reactstrap";
-import {Link} from "react-router-dom";
 import Button from "reactstrap/es/Button";
+import {Link} from "react-router-dom";
 
 class CancelButton extends Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponent: false,
+      disable: false
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
+
+  _onButtonClick() {
+    this.setState({
+      showComponent: true,
+    });
+  }
+
    render() {
     return(
       <div>
         <div style={{float: 'right'}}>
-          <Button>Zrušit</Button>
+          <Link to="/Dashboard">
+            <Button>Zrušit</Button>
+          </Link>
         </div>
       </div>
     )

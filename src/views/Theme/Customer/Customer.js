@@ -4,9 +4,9 @@ import Button from "reactstrap/es/Button";
 import Users from "../../Users";
 import render from "enzyme/src/render";
 import {Link} from "react-router-dom";
+import {NewForm} from "../../../components";
 
 class Customer extends Component{
-  float;
 
   constructor(props) {
     super(props);
@@ -23,14 +23,13 @@ class Customer extends Component{
     });
   }
 
-
   render() {
     return (
       <div>
         <div style={{float: 'right'}}>
-          <Link to="/PersonalData">
+          <Link to="/NewForm">
              <Button onClick={this._onButtonClick}> + Novy</Button>
-               { this.state.showComponent &&  <PersonalData/>}
+               { this.state.showComponent &&  <NewForm/>}
           </Link>
         </div>
         <Users />

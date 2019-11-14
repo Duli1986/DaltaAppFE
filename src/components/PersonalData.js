@@ -1,10 +1,9 @@
 import React ,  { Component } from 'react';
-import {CardBody, Col, Form, FormGroup, Input, Label} from "reactstrap";
-import {Link} from "react-router-dom";
-import Button from "reactstrap/es/Button";
+import { Col, Form, FormGroup, Input, Label} from "reactstrap";
 
 class PersonalData extends Component{
   state = {
+    pohlavi: "",
     firstName: "",
     surname:"",
     birthDate:"",
@@ -15,7 +14,7 @@ class PersonalData extends Component{
 
   change = e => {
     this.props.onChange({[e.target.name]: e.target.value});
-    this.state({
+    this.setState({
       [e.target.name]: e.target.value
     });
   };
@@ -24,6 +23,23 @@ class PersonalData extends Component{
     return(
       <Form action="" method="post" className="form-horizontal">
         <FormGroup row>
+          <Col md="1">
+            <Label htmlFor="select">Pohlaví</Label>
+          </Col>
+          <Col xs="12" md="3">
+            <Input type="select"
+                   name="pohlavi"
+                   id="select"
+                   value={this.state.pohlavi}
+                   onChange={e => this.setState({pohlavi: e.target.value})}
+            >
+              <option value="0">-----</option>
+              <option value="1">Muž</option>
+              <option value="2">Žena</option>
+            </Input>
+          </Col>
+        </FormGroup>
+        <FormGroup row>
           <Label sm="1" htmlFor="input-normal">Jméno</Label>
             <Col sm="3">
               <Input
@@ -31,7 +47,7 @@ class PersonalData extends Component{
                 name="firstName"
                 placeholder="Jmeno"
                 value={this.state.firstName}
-                onChange={ e => this.change(e)}
+                onChange={e => this.setState({firstName: e.target.value})}
               />
             </Col>
         </FormGroup>
@@ -43,7 +59,7 @@ class PersonalData extends Component{
                 name="surname"
                 placeholder="Prijmení"
                 value={this.state.surname}
-                onChange={ e => this.change(e)}
+                onChange={e => this.setState({surname: e.target.value})}
               />
             </Col>
         </FormGroup>
@@ -55,7 +71,7 @@ class PersonalData extends Component{
                 name="birthDate"
                 placeholder="Datum narození"
                 value={this.state.birthDate}
-                onChange={ e => this.change(e)}
+                onChange={e => this.setState({birthDate: e.target.value})}
               />
             </Col>
         </FormGroup>
@@ -67,7 +83,7 @@ class PersonalData extends Component{
               name="phone"
               placeholder="Jmeno"
               value={this.state.phone}
-              onChange={ e => this.change(e)}
+              onChange={e => this.setState({phone: e.target.value})}
             />
           </Col>
         </FormGroup>
@@ -79,7 +95,7 @@ class PersonalData extends Component{
               name="mail"
               placeholder="E-mail"
               value={this.state.mail}
-              onChange={ e => this.change(e)}
+              onChange={e => this.setState({mail: e.target.value})}
             />
           </Col>
         </FormGroup>
@@ -91,7 +107,7 @@ class PersonalData extends Component{
               name="bankAcount"
               placeholder="Bankovní účet"
               value={this.state.bankAcount}
-              onChange={ e => this.change(e)}
+              onChange={e => this.setState({bankAcount: e.target.value})}
             />
           </Col>
         </FormGroup>

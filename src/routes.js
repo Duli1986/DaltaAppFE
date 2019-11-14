@@ -35,7 +35,7 @@ const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
-const NewCustomer= React.lazy(() => import('./components/PersonalData'));
+const NewForm = React.lazy(() => import('./components/NewForm'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -43,7 +43,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', exact: true, name: 'Theme', component: Customer },
   { path: '/customer/Customer', name: 'Customer', component: Customer },
-  { path: '/PersonalData', name: 'NewCustomer', component: NewCustomer },
+  { path: '/NewForm', name: 'NewForm', component: NewForm },
   { path: '/theme/typography', name: 'Typography', component: Typography },
   { path: '/base', exact: true, name: 'Base', component: Cards },
   { path: '/base/cards', name: 'Cards', component: Cards },
