@@ -1,69 +1,41 @@
 import React ,  { Component } from 'react';
+import PersonalData from "../../../components/PersonalData";
+import Button from "reactstrap/es/Button";
+import Users from "../../Users";
+import render from "enzyme/src/render";
+import {Link} from "react-router-dom";
 
 class Customer extends Component{
-  state = {
-    firstName: "",
-    surname:"",
-    birthDate:"",
-    phone:"",
-    mail:"",
-    bankAcount:""
-  };
+  float;
 
-  change = e => {
-    this.props.onChange({[e.target.name]: e.target.value});
-    this.state({
-      [e.target.name]: e.target.value
-      });
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponent: false,
+      disable: false
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
+
+  _onButtonClick() {
+    this.setState({
+      showComponent: true,
+    });
+  }
+
 
   render() {
-    return(
-      <form>
-        <input
-          name="firstName"
-          placeholder="First name"
-          value={this.state.firstName}
-          onChange={ e => this.change(e)}
-        />
-
-        <br/>
-        <input
-          name="surname"
-          placeholder="Surname"
-          value={this.state.surname}
-          onChange={ e => this.change(e)}
-        />
-        <br/>
-        <input
-          name="birthDate"
-          placeholder="Birth Date"
-          value={this.state.birthDate}
-          onChange={ e => this.change(e)}
-        />
-        <br/>
-        <input
-          name="phone"
-          placeholder="Phone"
-          value={this.state.phone}
-          onChange={ e => this.change(e)}
-        />
-        <br/>
-        <input
-          name="mail"
-          placeholder="Mail"
-          value={this.state.mail}
-          onChange={ e => this.change(e)}
-        />
-        <br/>
-        <input
-          name="bankAcount"
-          placeholder="Bank Acount"
-          value={this.state.bankAcount}
-          onChange={ e => this.change(e)}
-        />
-      </form>
-    )
+    return (
+      <div>
+        <div style={{float: 'right'}}>
+          <Link to="/PersonalData">
+             <Button onClick={this._onButtonClick}> + Novy</Button>
+               { this.state.showComponent &&  <PersonalData/>}
+          </Link>
+        </div>
+        <Users />
+      </div>
+    );
   }
 }
 
