@@ -28,8 +28,7 @@ class Customer extends Component{
       <div>
         <div style={{float: 'right'}}>
           <Link to="/NewForm">
-             <Button onClick={this._onButtonClick}> + Novy</Button>
-               { this.state.showComponent &&  <NewForm/>}
+             <Button > + Novy</Button>
           </Link>
         </div>
         <Users />
