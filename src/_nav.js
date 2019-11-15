@@ -20,7 +20,7 @@ export default {
     },
     {
       name: 'Zákazník',
-      url: '/CustomersTable',
+      url: '/CustomerTable',
     },
     {
       name: 'Karta Zákazníka',
