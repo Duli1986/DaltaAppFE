@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import PersonalData from "../../../components/PersonalData";
+import PersonalData from "../../../NewForm/components/PersonalData";
 import Button from "reactstrap/es/Button";
 import Users from "../../Users";
 import render from "enzyme/src/render";
 import {Link} from "react-router-dom";
-import {NewForm} from "../../../components";
+import {NewForm} from "../../../NewForm/components";
 
 class Customer extends Component {
 

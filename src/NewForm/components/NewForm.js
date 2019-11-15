@@ -4,6 +4,8 @@ import NewCustomer from "./NewCustomer";
 import Company from "./Company";
 import Car from "./Car";
 import Other from "./Other";
+import Gdpr from "./Gdpr";
+import OtherButtons from "./OtherButtons";
 
 class NewForm extends Component {
   render() {
@@ -15,6 +17,8 @@ class NewForm extends Component {
         <Company />
         <Car />
         <Other />
+        <Gdpr />
+        <OtherButtons />
       </div>
     )
   }
