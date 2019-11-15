@@ -1,4 +1,4 @@
-import React ,  { Component } from 'react';
+import React, {Component} from 'react';
 import PersonalData from "../../../components/PersonalData";
 import Button from "reactstrap/es/Button";
 import Users from "../../Users";
@@ -6,7 +6,7 @@ import render from "enzyme/src/render";
 import {Link} from "react-router-dom";
 import {NewForm} from "../../../components";
 
-class Customer extends Component{
+class Customer extends Component {
 
   constructor(props) {
     super(props);
@@ -28,10 +28,10 @@ class Customer extends Component{
       <div>
         <div style={{float: 'right'}}>
           <Link to="/NewForm">
-             <Button > + Novy</Button>
+            <Button color="success"> + Novy</Button>
           </Link>
         </div>
-        <Users />
+        <Users/>
       </div>
     );
   }

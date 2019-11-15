@@ -1,8 +1,8 @@
-import React ,  { Component } from 'react';
+import React, {Component} from 'react';
 import Button from "reactstrap/es/Button";
 import {Link} from "react-router-dom";
 
-class CancelButton extends Component{
+class CancelButton extends Component {
 
   constructor(props) {
     super(props);
@@ -19,12 +19,12 @@ class CancelButton extends Component{
     });
   }
 
-   render() {
-    return(
+  render() {
+    return (
       <div>
         <div style={{float: 'right'}}>
           <Link to="/Dashboard">
-            <Button>Zrušit</Button>
+            <Button color="danger">Zrušit</Button>
           </Link>
         </div>
       </div>
