@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import Button from "reactstrap/es/Button";
-import {CusTable} from "./index";
+import {CustomerCard} from "./index";
 
 class CustomerTable extends Component {
   constructor(props) {
@@ -27,6 +27,10 @@ class CustomerTable extends Component {
             <Button color="success"> + Novy</Button>
           </Link>
         </div>
+        <div>
+          <CustomerCard />
+        </div>
+
       </div>
     );
   }

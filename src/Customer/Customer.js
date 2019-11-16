@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import PersonalData from "../../../NewForm/components/PersonalData";
+import PersonalData from "../NewForm/components/PersonalData";
 import Button from "reactstrap/es/Button";
-import Users from "../../Users";
+import Users from "../views/Users";
 import render from "enzyme/src/render";
 import {Link} from "react-router-dom";
-import {NewForm} from "../../../NewForm/components";
+import {NewForm} from "../NewForm/components";
+import {CustomerCard} from "../CustomerTable/components";
 
 class Customer extends Component {
 
@@ -31,7 +32,7 @@ class Customer extends Component {
             <Button color="success"> + Novy</Button>
           </Link>
         </div>
-        <Users/>
+        <CustomerCard />
       </div>
     );
   }

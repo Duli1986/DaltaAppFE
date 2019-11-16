@@ -1,6 +1,7 @@
 import CustomerTable from "./CustomerTable";
-import CusTable from "./CusTable";
+import CustomerCard from "./CustomerCard";
+import CustomerDetail from "./CustomerDetail";
 
 export {
-  CustomerTable, CusTable
+  CustomerTable, CustomerCard, CustomerDetail
 };
