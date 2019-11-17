@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import PersonalData from "../NewForm/components/PersonalData";
-import Button from "reactstrap/es/Button";
-import Users from "../views/Users";
-import render from "enzyme/src/render";
-import {Link} from "react-router-dom";
-import {NewForm} from "../NewForm/components";
 import {CustomerCard} from "../CustomerTable/components";
+import {CustomerButtons} from "../CustomerButtons";
 
 class Customer extends Component {
 
@@ -27,11 +22,7 @@ class Customer extends Component {
   render() {
     return (
       <div>
-        <div style={{float: 'right'}}>
-          <Link to="/NewForm">
-            <Button color="success"> + Novy</Button>
-          </Link>
-        </div>
+        <CustomerButtons />
         <CustomerCard />
       </div>
     );
