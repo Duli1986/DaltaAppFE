@@ -32,9 +32,19 @@ class CustomerButtons extends Component {
             <Button color="success"> + Novy</Button>
           </Link>
         </div>
-        <div style={{float: 'left'}}>
+        <div>
           <Link to="/NewForm">
-            <Button color="primary">Zrušit</Button>
+            <Button color="danger">Zrušit</Button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/NewForm">
+            <Button color="danger">Zrušit</Button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/NewForm">
+            <Button color="danger">Zrušit</Button>
           </Link>
         </div>
       </div>

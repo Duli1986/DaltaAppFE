@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
-import Button from "reactstrap/es/Button";
 import {CustomerCard} from "./index";
+import CustomerButtons from "../../CustomerButtons/CustomerButtons";
+import Col from "reactstrap/es/Col";
+import Card from "reactstrap/es/Card";
 
 class CustomerTable extends Component {
   constructor(props) {
@@ -22,15 +23,20 @@ class CustomerTable extends Component {
   render() {
     return (
       <div>
-        <div style={{float: 'right'}}>
-          <Link to="/NewForm">
-            <Button color="success"> + Novy</Button>
-          </Link>
-        </div>
-        <div>
-          <CustomerCard />
-        </div>
-
+        <Card>
+          <Col>
+            <div>
+              <CustomerButtons/>
+            </div>
+          </Col>
+        </Card>
+        <Card>
+          <Col>
+            <div>
+              <CustomerCard/>
+            </div>
+          </Col>
+        </Card>
       </div>
     );
   }

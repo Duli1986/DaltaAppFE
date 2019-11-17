@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import {Link} from 'react-router-dom';
+import {Badge, Card, CardBody, CardHeader, Col, Row, Table} from 'reactstrap';
 
 import customerData from '../constants/CustomerData'
 
@@ -12,8 +12,8 @@ function CustomerRow(props) {
   const getBadge = (status) => {
     return status === 'Active' ? 'success' :
       status === 'Inactive' ? 'secondary' :
-          status === 'Banned' ? 'danger' :
-            'primary'
+        status === 'Banned' ? 'danger' :
+          'primary'
   }
 
   return (
