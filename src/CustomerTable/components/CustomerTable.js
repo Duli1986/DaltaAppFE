@@ -3,6 +3,7 @@ import {CustomerCard} from "./index";
 import CustomerButtons from "../../CustomerButtons/CustomerButtons";
 import Col from "reactstrap/es/Col";
 import Card from "reactstrap/es/Card";
+import {CustomerFields} from "../../CustomerFields";
 
 class CustomerTable extends Component {
   constructor(props) {
@@ -27,6 +28,13 @@ class CustomerTable extends Component {
           <Col>
             <div>
               <CustomerButtons/>
+            </div>
+          </Col>
+        </Card>
+        <Card>
+          <Col>
+            <div>
+              <CustomerFields/>
             </div>
           </Col>
         </Card>
