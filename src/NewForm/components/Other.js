@@ -102,7 +102,7 @@ class Other extends Component {
                             name="textarea-input"
                             id="textarea-input"
                             rows="9"
-                            cols="80"
+                            cols="40"
                             placeholder="Poznámky..."/>
                 </Col>
               </FormGroup>
