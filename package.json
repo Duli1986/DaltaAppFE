@@ -25,6 +25,8 @@
     "font-awesome": "^4.7.0",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
+    "ramda": "^0.26.1",
+    "ramda-extension": "^0.9.1",
     "react": "^16.11.0",
     "react-app-polyfill": "^1.0.4",
     "react-chartjs-2": "^2.8.0",
