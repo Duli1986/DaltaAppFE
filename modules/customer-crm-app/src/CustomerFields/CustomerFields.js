@@ -12,8 +12,10 @@ import {
 
 class CustomerFields extends Component {
   state = {
-    porCislo: "",
-    oddeleni: "",
+    hledat: "",
+    stav: "",
+    od: "",
+    do: "",
   };
 
   change = e => {
@@ -26,35 +28,72 @@ class CustomerFields extends Component {
   render() {
     return (
       <Row>
-        <Col sm="6">
-          <FormGroup row>
-            <Input
-              bsSize="sl"
-              name="porCislo"
-              placeholder="Pořadové číslo"
-              value={this.state.porCislo}
-              onChange={e => this.setState({porCislo: e.target.value})}
-            /> </FormGroup>
-        </Col>
-        <Col md="6">
-          <FormGroup row>
-
-            <Col xs="12" md="6">
-              <Input type="select"
-                     name="oddeleni"
-                     id="select"
-                     value={this.state.oddeleni}
-                     onChange={e => this.setState(
-                       {oddeleni: e.target.value})}
-              >
-                <option value="0">-----</option>
-                <option value="1">Showroom</option>
-                <option value="2">Servis</option>
-                <option value="3">Pneuservis</option>
-                <option value="4">Performance</option>
-              </Input>
+        <Col md="5">
+          <Row>
+            <Col xs="4">
+            <Label>Hledání</Label>
             </Col>
-          </FormGroup>
+          </Row>
+          <Row>
+            <Col xs="4">
+              <FormGroup>
+                <Input
+                  bsSize="sl"
+                  name="hledat"
+                  placeholder="Hledat"
+                  value={this.state.hledat}
+                  onChange={e => this.setState({hledat: e.target.value})}
+                />
+              </FormGroup>
+            </Col>
+            <Col xs="4">
+              <FormGroup>
+                <Input type="select"
+                       name="stav"
+                       id="select"
+                       value={this.state.stav}
+                       onChange={e => this.setState(
+                         {stav: e.target.value})}
+                >
+                  <option value="0">-----</option>
+                  <option value="1">Nový</option>
+                  <option value="2">Aktivní</option>
+                  <option value="3">Neaktivní</option>
+                </Input>
+              </FormGroup>
+            </Col>
+          </Row>
+        </Col>
+        <Col md="5">
+          <Row>
+            <Col xs="4">
+              <Label>Datum vytvoření</Label>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs="4">
+              <FormGroup>
+                <Input
+                  bsSize="sl"
+                  name="od"
+                  placeholder="Od"
+                  value={this.state.od}
+                  onChange={e => this.setState({od: e.target.value})}
+                />
+              </FormGroup>
+            </Col>
+            <Col xs="4">
+              <FormGroup>
+                <Input
+                  bsSize="sl"
+                  name="do"
+                  placeholder="Do"
+                  value={this.state.do}
+                  onChange={e => this.setState({do: e.target.value})}
+                />
+              </FormGroup>
+            </Col>
+          </Row>
         </Col>
       </Row>
     )

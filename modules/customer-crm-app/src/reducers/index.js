@@ -77,86 +77,12 @@ const vehicleLookupReducer = compose(
   defaultTo({ lookupSearchType: 'identificationNumber', resultApplied: false })
 );
 
-const rootReducer = (history) =>
-  combineReducers({
+const rootReducer = combineReducers({
     urls: dummyReducer,
-    router: connectRouter(history),
     negotiationForm: combineReducers({
-      registeredFields: dummyReducerArray,
-      fieldsState: dummyReducer,
-      globalErrors: globalErrorsReducer,
-      state: condReducer(
-        [[typeEq(formStateActions.UPDATE_FORM_STATE), formStateReducer]],
-        flowFormReducer(NEGOTIATION_FORM)
-      ),
-      contractData: condReducer(
-        [
-          underwritingReducer,
-          [typeIn(contractDataActions), contractDataReducer],
-          [typeIn(masterContractDataActions.ASSOC_MASTER_CONTRACT_DATA), masterContractMapReducer],
-        ],
-        multiFormReducer
-      ),
-      fieldDescriptor: fieldDescriptorReducer,
-      transitionDescriptor: transitionDescriptorReducer,
-      temporaryData: condReducer(
-        [[typeEq(temporaryDataActions.ASSOC_TEMPORARY_DATA), temporaryDataReducer]],
-        combineReducers({
-          add: dummyReducer,
-          internalEconomicActivityCode: dummyReducer,
-          clientLookup: clientLookupReducer,
-          searchAgent: searchAgent.reducers.defaultReducer,
-          requestedDocuments: dummyReducerArray,
-          debugInfo: dummyReducer,
-          searchVehicle: combineReducers({
-            registeredVehicles: searchVehicle.reducers.searchVehicleReducers.searchListVehicleReducer,
-            vehiclesByVin: searchVehicle.reducers.searchVehicleReducers.getVehiclesReducer,
-            vehicleValuation: searchVehicle.reducers.searchVehicleReducers.getExpertValuationReducer,
-          }),
-          filterVehicles: dummyReducer,
-          searchClient: searchClient.reducers.defaultReducer,
-          selectedServicePosition: dummyReducerZero,
-          associatedParties: dummyReducerArray,
-          searchClientAddress: searchClientAddress.reducers.defaultReducer,
-          selectedRegisteredVehiclePosition: dummyReducerZero,
-          selectedVehiclePosition: dummyReducerZero,
-          vehicleLookup: vehicleLookupReducer,
-          homeService: dummyReducer,
-          homeServiceFilter: dummyReducer,
-          subcontractsOverviewList: loadSubcontractsOverviewReducer,
-          vehicleEvaluation: dummyReducer,
-          uwNotes: loadUwNotesReducer,
-          uwRemarks: loadUwRemarksReducer,
-          originalContractData: dummyReducer,
-          uniformity: dummyReducer,
-          calculatedPackage: dummyReducer,
-          mtaVehicleRenewalConfirmed: booleanReducer,
-          urlQuery: dummyReducer,
-          preliminaryPrintTimestamp: dummyReducerZero,
-          coefficients: dummyReducer,
-          pov: dummyReducer,
-          hav: dummyReducer,
-          envelopeId: dummyReducerZero,
-          policyStartDateService: stringReducer,
-          prevPolicyStartDate: stringReducer,
-          prints: dummyReducer,
-          originalKindOfFleet: stringReducer,
-        })
-      ),
-      originalContractData: originalContractDataReducer,
-      masterContractData: masterContractDataReducer,
-    }),
-    error: errorHandlerReducer,
-    product: productReducer,
-    productVersion: productVersionReducer,
-    userInfo: userInfoReducer,
-    codelists: codelistReducer,
-    modalLoader: modalLoader.reducers.hugoReducer,
-    modalWindows: modalRoot.reducers.defaultReducer,
-    userSession: userSession.reducer,
-    toastr: toastrReducer,
-    appContext: appContextReducer,
-    whisper: whisperReducer,
-  });
+        registeredFields: dummyReducerArray,
+        fieldsState: dummyReducer,
+      }),
+    });
 
-export default (history) => enableBatching(reduxFormReducer(rootReducer(history)));
+export default enableBatching(reduxFormReducer(rootReducer));

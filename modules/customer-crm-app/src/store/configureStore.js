@@ -4,32 +4,22 @@ import createLogger, { LogLevel } from 'gef-ui-logging';
 import { includes } from 'ramda';
 import api from 'hugo2-ui-features/api';
 import storage from 'hugo2-ui-features/storage';
-import debouncedMiddleware from 'hugo2-ui-redux-form/middleware/debouncedMiddleware';
 import rootReducer from '../reducers';
-import pdsValidationMiddleware from './pdsValidationMiddleware';
-import { routerMiddleware } from 'connected-react-router';
-
 const logger = createLogger({
   level: LogLevel.DEBUG,
-  name: 'fla-ui-app',
+  name: 'customer-crm-app',
   collapsed: true,
 });
 
-const defaultMiddlewares = (history) => [
-  debouncedMiddleware,
-  routerMiddleware(history),
-  api.middleware(),
-  storage.middleware,
-  thunk,
-];
+const defaultMiddlewares = [api.middleware(), storage.middleware, thunk];
 
-function configureStore(preloadedState, history) {
+function configureStore(preloadedState) {
   const store = createStore(
-    rootReducer(history),
+    rootReducer,
     preloadedState,
     process.env.NODE_ENV === 'development'
-      ? compose(applyMiddlewareWithDevTool(...defaultMiddlewares(history), logger))
-      : applyMiddlewareWithLogger(...defaultMiddlewares(history))
+      ? compose(applyMiddlewareWithDevTool(...defaultMiddlewares, logger))
+      : applyMiddlewareWithLogger(...defaultMiddlewares)
   );
 
   if (process.env.NODE_ENV === 'development' && module.hot) {
