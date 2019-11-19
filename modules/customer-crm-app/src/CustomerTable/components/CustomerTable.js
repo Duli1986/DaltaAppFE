@@ -34,13 +34,6 @@ class CustomerTable extends Component {
         <Card>
           <Col>
             <div>
-              <CustomerFields/>
-            </div>
-          </Col>
-        </Card>
-        <Card>
-          <Col>
-            <div>
               <CustomerCard/>
             </div>
           </Col>

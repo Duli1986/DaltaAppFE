@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {Badge, Card, CardBody, CardHeader, Col, Row, Table} from 'reactstrap';
 
 import customerData from '../constants/CustomerData'
+import {CustomerFields} from "../../CustomerFields";
 
 function CustomerRow(props) {
   const customer = props.customer
@@ -44,6 +45,11 @@ class CustomerCard extends Component {
 
     return (
       <div className="animated fadeIn">
+        <Row>
+          <Col>
+          <CustomerFields />
+          </Col>
+        </Row>
         <Row>
           <Col>
             <Card>
