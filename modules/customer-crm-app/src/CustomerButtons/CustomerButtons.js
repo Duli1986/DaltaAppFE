@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {NewForm} from "../NewForm/components";
 import {CustomerCard} from "../CustomerTable/components";
 import {Col, Row} from "reactstrap";
+import ButtonToolbar from "reactstrap/es/ButtonToolbar";
 
 class CustomerButtons extends Component {
 
@@ -29,42 +30,55 @@ class CustomerButtons extends Component {
     return (
       <div>
         <Row>
-          <Col>
-            <Row className="align-items-left">
-          <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-          <Link to="/NewForm">
-            <Button color="secondary" className="btn-pill">Karta</Button>
-          </Link>
-          </Col>
-          <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-          <Link to="/NewForm">
-            <Button color="secondary" className="btn-pill">Seznam</Button>
-          </Link>
-          </Col>
-          <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-          <Link to="/NewForm">
-            <Button color="primary" className="btn-pill">Odeslat email</Button>
-          </Link>
-          </Col>
-          <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-          <Link to="/NewForm">
-            <Button color="primary" className="btn-pill">Odeslat SMS</Button>
-          </Link>
-          </Col>
+          <Col col="10" sm="10" md="10">
+            <Row>
+
+              <Col col="6" sm="4" md="4">
+                <Link to="/NewForm">
+                  <Button color="secondary"><i
+                    className="cui-print icons"></i>&nbsp;Karta</Button>
+                </Link>
+              </Col>
+              <Col col="6" sm="4" md="4">
+                <Link to="/NewForm">
+                  <Button color="secondary"><i
+                    className="cui-print icons"></i>&nbsp;Seznam</Button>
+                </Link>
+              </Col>
+              <Col col="6" sm="4" md="4">
+                <Link to="/NewForm">
+                  <Button color="primary">
+                    <i className="cui-envelope-open icons"></i>&nbsp;Odeslat
+                    email</Button>
+                </Link>
+              </Col>
+              <Col col="6" sm="4" md="4">
+                <Link to="/NewForm">
+                  <Button color="primary">
+                    <i className="cui-envelope-open icons"></i>&nbsp;Odeslat
+                    SMS</Button>
+                </Link>
+              </Col>
+
             </Row>
           </Col>
-          <Col>
-            <Row className="align-items-right">
-          <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-          <Link to="/NewForm">
-            <Button color="danger" className="btn-pill">Odstranit</Button>
-          </Link>
-          </Col>
-          <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-          <Link to="/NewForm">
-            <Button color="success" className="btn-pill"> + Novy</Button>
-          </Link>
-          </Col>
+          <Col col="2" sm="8" md="2">
+            <Row className="justify-content-center mt-4" md="2">
+              <ButtonToolbar className="align-items-right">
+                <Col col="6" sm="4" md="2" xl className="mr-2">
+                  <Link to="/NewForm">
+                    <Button color="danger" xl
+                            className="mr-2">Odstranit</Button>
+                  </Link>
+                </Col>
+                <Col col="6" sm="4" md="2" xl className="mr-2">
+                  <Link to="/NewForm">
+                    <Button color="success" xl
+                            className="mr-2"> +
+                      Novy</Button>
+                  </Link>
+                </Col>
+              </ButtonToolbar>
             </Row>
           </Col>
         </Row>
