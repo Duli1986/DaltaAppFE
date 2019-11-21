@@ -12,17 +12,19 @@ import {
 
 class CustomerFields extends Component {
   state = {
-    hledat: "",
-    stav: "",
-    od: "",
-    do: "",
+    hledat: '',
+    stav: '',
+    odDoby: '',
+    doDoby: '',
   };
 
-  change = e => {
-    this.props.onChange({[e.target.name]: e.target.value});
+  onChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
-    });
+      hledat: e.target.hledat,
+      stav: e.target.stav,
+      odDoby: e.target.odDoby,
+      doDoby: e.target.doDoby,
+    })
   };
 
   render() {
@@ -42,7 +44,7 @@ class CustomerFields extends Component {
                   name="hledat"
                   placeholder="Hledat"
                   value={this.state.hledat}
-                  onChange={e => this.setState({hledat: e.target.value})}
+                  onChange={this.onChange}
                 />
               </FormGroup>
             </Col>
@@ -52,8 +54,7 @@ class CustomerFields extends Component {
                        name="stav"
                        id="select"
                        value={this.state.stav}
-                       onChange={e => this.setState(
-                         {stav: e.target.value})}
+                       onChange={this.onChange}
                 >
                   <option value="0">-----</option>
                   <option value="1">Nový</option>
@@ -75,10 +76,10 @@ class CustomerFields extends Component {
               <FormGroup>
                 <Input
                   bsSize="sl"
-                  name="od"
+                  name="odDoby"
                   placeholder="Od"
-                  value={this.state.od}
-                  onChange={e => this.setState({od: e.target.value})}
+                  value={this.state.odDoby}
+                  onChange={this.onChange}
                 />
               </FormGroup>
             </Col>
@@ -86,10 +87,10 @@ class CustomerFields extends Component {
               <FormGroup>
                 <Input
                   bsSize="sl"
-                  name="do"
+                  name="doDoby"
                   placeholder="Do"
-                  value={this.state.do}
-                  onChange={e => this.setState({do: e.target.value})}
+                  value={this.state.doDoby}
+                  onChange={this.onChange}
                 />
               </FormGroup>
             </Col>
@@ -99,5 +100,6 @@ class CustomerFields extends Component {
     )
   }
 }
+
 
 export default CustomerFields;
