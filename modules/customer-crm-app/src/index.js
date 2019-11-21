@@ -11,8 +11,28 @@ import {createStore} from "redux";
 import rootReducer from "./reducers";
 import { Provider } from 'react-redux'
 
-const hello = () => ({welcome: 'halo'});
-const store = createStore(hello);
+const defaulState = {
+  welcome: ''
+}
+
+const storeState = (state = defaulState, action) => {
+    switch(action.type){
+      case 'GREET_ME':
+          return {
+            welcome: 'Halo'
+          };
+      default:
+        return state;
+    }
+};
+const store = createStore(storeState);
+
+console.log(store.getState());
+store.dispatch({
+  type: 'GREET_ME'
+})
+console.log(store.getState());
+
 
 ReactDOM.render(
   <Provider store={store}>
