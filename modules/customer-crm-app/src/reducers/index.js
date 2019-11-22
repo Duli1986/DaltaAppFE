@@ -7,7 +7,7 @@ const dummyReducer = compose(
 );
 
 const rootReducer = combineReducers({
-      state: dummyReducer,
+      negotiationForm: dummyReducer,
       globalErrors: dummyReducer
     });
 

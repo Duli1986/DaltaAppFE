@@ -44,6 +44,7 @@ const CustomerDetail = React.lazy(() => import('./CustomerTable/components/Custo
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  { path: '/crm', name: 'CustomerTable', component: CustomerTable },
   { path: '/theme', exact: true, name: 'Theme', component: Customer },
   { path: '/customer/Customer', name: 'Customer', component: Customer },
   { path: '/NewForm', name: 'NewForm', component: NewForm },
