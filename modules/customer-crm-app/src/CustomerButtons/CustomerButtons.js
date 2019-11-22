@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Button from "reactstrap/es/Button";
 import {Link} from "react-router-dom";
 import {Col, Row} from "reactstrap";
-import ButtonToolbar from "reactstrap/es/ButtonToolbar";
 
 class CustomerButtons extends Component {
 
