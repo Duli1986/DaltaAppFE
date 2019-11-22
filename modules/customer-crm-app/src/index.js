@@ -10,11 +10,6 @@ import * as serviceWorker from './serviceWorker';
 import {applyMiddleware, createStore, compose } from "redux";
 import rootReducer from "./reducers";
 import { Provider } from 'react-redux'
-import configureStore from "./store/configureStore";
-import {composeWithDevTools} from "redux-devtools-extension";
-import middleware from "react-dedux";
-
-// const store = configureStore();
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense} from 'react';
 import {CustomerCard} from "./index";
 import CustomerButtons from "../../CustomerButtons/CustomerButtons";
 import Col from "reactstrap/es/Col";
