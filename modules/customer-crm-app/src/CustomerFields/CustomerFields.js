@@ -9,6 +9,8 @@ import {
   Input,
   Label, Row
 } from "reactstrap";
+import {bindActionCreators} from "redux";
+import { connect } from 'react-redux';
 
 class CustomerFields extends Component {
   state = {
@@ -101,5 +103,21 @@ class CustomerFields extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
 
-export default CustomerFields;
+    },
+    dispatch
+  );
+
+const mapStateToProps = (state) => {
+    return {
+      hledat: state.hledat,
+      stav: state.stav,
+      odDoby: state.odDoby,
+      doDoby: state.doDoby,
+    }
+};
+
+export default connect(mapDispatchToProps, mapStateToProps)(CustomerFields);

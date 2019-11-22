@@ -7,32 +7,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from "redux";
+import {applyMiddleware, createStore, compose } from "redux";
 import rootReducer from "./reducers";
 import { Provider } from 'react-redux'
+import configureStore from "./store/configureStore";
+import {composeWithDevTools} from "redux-devtools-extension";
+import middleware from "react-dedux";
 
-const defaulState = {
-  welcome: ''
-}
+// const store = configureStore();
 
-const storeState = (state = defaulState, action) => {
-    switch(action.type){
-      case 'GREET_ME':
-          return {
-            welcome: 'Halo'
-          };
-      default:
-        return state;
-    }
-};
-const store = createStore(storeState);
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-console.log(store.getState());
-store.dispatch({
-  type: 'GREET_ME'
-})
-console.log(store.getState());
-
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware())
+);
 
 ReactDOM.render(
   <Provider store={store}>
