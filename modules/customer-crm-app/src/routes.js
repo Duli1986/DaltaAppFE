@@ -40,12 +40,14 @@ const CustomerTable = React.lazy(() => import('./CustomerTable/components/Custom
 const CustomerCard = React.lazy(() => import('./CustomerTable/components/CustomerCard'));
 const CustomerDetail = React.lazy(() => import('./CustomerTable/components/CustomerDetail'));
 const InitialApp = React.lazy(() => import('./InitialApp/components/InitialApp'));
+const LoginPage = React.lazy(() => import('./LoginPage/components/LoginPage'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/initialApp', name: 'InitialApp', component: InitialApp },
+  { path: '/login', name: 'LoginPage', component: LoginPage },
   { path: '/crm', name: 'CustomerTable', component: CustomerTable },
   { path: '/theme', exact: true, name: 'Theme', component: Customer },
   { path: '/customer/Customer', name: 'Customer', component: Customer },

@@ -30,24 +30,6 @@ class DefaultHeader extends Component {
           <NavItem className="px-3" color="primary">
             <NavLink to="/crm" className="nav-link">CRM</NavLink>
           </NavItem>
-          <NavItem className="px-3">
-            <NavLink to="/sklady" className="nav-link" >Sklady</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink to="/objednavky" className="nav-link" >Objednávky</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink to="/personalistika" className="nav-link" >Personalistika</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink to="/ucetnisctvi" className="nav-link" >Účetnictví</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink to="/rizeni" className="nav-link" >Řízení</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink to="/nastaveni" className="nav-link" >Nastavení</NavLink>
-          </NavItem>
         </Nav>
         <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Button from "reactstrap/es/Button";
-import {Link} from "react-router-dom";
+import {BrowserRouter, Link, withRouter} from "react-router-dom";
 import {Col, Row} from "reactstrap";
+import {NewForm} from "../NewForm/components";
 
 class CustomerButtons extends Component {
 
@@ -12,12 +13,17 @@ class CustomerButtons extends Component {
       disable: false
     };
     this._onButtonClick = this._onButtonClick.bind(this);
+    this.routeChange = this.routeChange.bind(this);
   }
 
   _onButtonClick() {
     this.setState({
       showComponent: true,
     });
+  }
+
+  routeChange() {
+    this.props.history.push('/NewForm');
   }
 
   render() {
@@ -66,14 +72,10 @@ class CustomerButtons extends Component {
             <Col>
               <Row className="float-right" md="6">
                 <Col sm xs="10" className="text-center">
-                  <Link to="/NewForm">
                     <Button color="danger">Odstranit</Button>
-                  </Link>
                 </Col>
                 <Col sm xs="10" className="text-center">
-                  <Link to="/NewForm">
-                    <Button color="success"> + Nový</Button>
-                  </Link>
+                    <Button color="success" onClick={this.routeChange}> + Nový</Button>
                 </Col>
               </Row>
             </Col>
@@ -84,4 +86,4 @@ class CustomerButtons extends Component {
   }
 }
 
-export default CustomerButtons;
+export default withRouter (CustomerButtons);

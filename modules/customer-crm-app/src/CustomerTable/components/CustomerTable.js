@@ -6,6 +6,7 @@ import Card from "reactstrap/es/Card";
 import {CustomerFields} from "../../CustomerFields";
 
 class CustomerTable extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,14 +28,14 @@ class CustomerTable extends Component {
         <Card>
           <Col>
             <div>
-              <CustomerButtons/>
+              <CustomerButtons {...this.props} />
             </div>
           </Col>
         </Card>
         <Card>
           <Col>
             <div>
-              <CustomerCard/>
+              <CustomerCard {...this.props}/>
             </div>
           </Col>
         </Card>
