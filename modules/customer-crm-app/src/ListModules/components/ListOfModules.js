@@ -11,18 +11,15 @@ class ListOfModules extends Component {
       showComponent: false,
       disable: false
     };
-    this._onButtonClick = this._onButtonClick.bind(this);
-    this.routeChange = this.routeChange.bind(this);
+    this.routeChangeCrm = this.routeChangeCrm.bind(this);
+    this.routeChangeSklady = this.routeChangeSklady.bind(this);
   }
 
-  _onButtonClick() {
-    this.setState({
-      showComponent: true,
-    });
-  }
-
-  routeChange() {
+  routeChangeCrm() {
     this.props.history.push('/crm');
+  }
+  routeChangeSklady() {
+    this.props.history.push('/newForm');
   }
 
   render() {
@@ -77,10 +74,10 @@ class ListOfModules extends Component {
                   <Button color="danger">Odstranit</Button>
                 </Col>
                 <Col sm xs="4" className="text-center">
-                  <Button color="success" onClick={this.routeChange}> + Nový</Button>
+                  <Button color="success" onClick={this.routeChangeCrm}> + Nový</Button>
                 </Col>
                 <Col sm xs="4" className="text-center">
-                  <Button color="danger">Odstranit</Button>
+                  <Button color="danger" onClick={this.routeChangeSklady}>Odstranit</Button>
                 </Col>
               </Row>
             </Col>
