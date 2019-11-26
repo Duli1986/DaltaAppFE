@@ -12,7 +12,7 @@ import {
 
 class LoginPage extends Component {
 
-  signIn(e) {
+  signIn = (e) => {
     e.preventDefault()
     this.props.history.push('/crm')
   }
@@ -49,9 +49,8 @@ class LoginPage extends Component {
                       </InputGroup>
                       <Row>
                         <Col xs="5">
-
                           <Button color="primary"
-                                  className="px-4" onClick={e=>this.signIn(e)}>Login</Button>
+                            className="px-4" onClick={e=>this.signIn(e)}>Login</Button>
                         </Col>
                         <Col xs="5" className="text-right">
                           <Button color="link" className="px-0">Forgot

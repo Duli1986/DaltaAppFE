@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-import usersData from '../../CustomerTable/constants/CustomerData'
+import usersData from '../../components/CustomerTable/constants/CustomerData'
 
 class User extends Component {
 

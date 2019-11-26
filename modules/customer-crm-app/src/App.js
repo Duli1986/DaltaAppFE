@@ -15,7 +15,7 @@ const loading = () => <div className="animated fadeIn pt-3 text-center">Loading.
 // Containers
 const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
 const LoginPage = React.lazy(() => import('./LoginPage/components/LoginPage'));
-const CustomerTable = React.lazy(() => import('./CustomerTable/components/CustomerTable'));
+const CustomerTable = React.lazy(() => import('./components/CustomerTable/components/CustomerTable'));
 
 // Pages
 const Login = React.lazy(() => import('./views/Pages/Login'));

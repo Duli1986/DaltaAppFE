@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import auto from '../../assets/img/brand/autoSuper.png'
+import auto from '../../../assets/img/brand/autoSuper.png'
 
 class InitialApp extends Component {
   constructor(props) {

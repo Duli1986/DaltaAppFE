@@ -30,16 +30,16 @@ const SimpleLineIcons = React.lazy(() => import('./views/Icons/SimpleLineIcons')
 const Alerts = React.lazy(() => import('./views/Notifications/Alerts'));
 const Badges = React.lazy(() => import('./views/Notifications/Badges'));
 const Modals = React.lazy(() => import('./views/Notifications/Modals'));
-const Customer = React.lazy(() => import('./Customer'));
+const Customer = React.lazy(() => import('./components/Customer'));
 const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets'));
 const Users = React.lazy(() => import('./views/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
-const NewForm = React.lazy(() => import('./NewForm/components/NewForm'));
-const CustomerTable = React.lazy(() => import('./CustomerTable/components/CustomerTable'));
-const CustomerCard = React.lazy(() => import('./CustomerTable/components/CustomerCard'));
-const CustomerDetail = React.lazy(() => import('./CustomerTable/components/CustomerDetail'));
-const InitialApp = React.lazy(() => import('./InitialApp/components/InitialApp'));
+const NewForm = React.lazy(() => import('./components/NewForm/components/NewForm'));
+const CustomerTable = React.lazy(() => import('./components/CustomerTable/components/CustomerTable'));
+const CustomerCard = React.lazy(() => import('./components/CustomerTable/components/CustomerCard'));
+const CustomerDetail = React.lazy(() => import('./components/CustomerTable/components/CustomerDetail'));
+const InitialApp = React.lazy(() => import('./components/InitialApp/components/InitialApp'));
 const LoginPage = React.lazy(() => import('./LoginPage/components/LoginPage'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
