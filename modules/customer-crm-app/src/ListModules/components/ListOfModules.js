@@ -3,7 +3,7 @@ import Button from "reactstrap/es/Button";
 import {BrowserRouter, Link, withRouter} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 
-class ListModules extends Component {
+class ListOfModules extends Component {
 
   constructor(props) {
     super(props);
@@ -22,7 +22,7 @@ class ListModules extends Component {
   }
 
   routeChange() {
-    this.props.history.push('/NewForm');
+    this.props.history.push('/crm');
   }
 
   render() {
@@ -92,4 +92,4 @@ class ListModules extends Component {
   }
 }
 
-export default withRouter (ListModules);
+export default withRouter (ListOfModules);

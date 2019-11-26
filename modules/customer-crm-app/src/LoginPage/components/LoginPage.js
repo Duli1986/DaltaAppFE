@@ -14,7 +14,7 @@ class LoginPage extends Component {
 
   signIn = (e) => {
     e.preventDefault()
-    this.props.history.push('/crm')
+    this.props.history.push('/listOfModules')
   }
 
   render() {

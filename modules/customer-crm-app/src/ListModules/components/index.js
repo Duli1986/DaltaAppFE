@@ -1,4 +1,4 @@
-import ListModules from "./ListModules";
+import ListModules from "./ListOfModules";
 
 export {
   ListModules

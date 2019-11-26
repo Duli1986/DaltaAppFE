@@ -41,6 +41,7 @@ const CustomerCard = React.lazy(() => import('./components/CustomerTable/compone
 const CustomerDetail = React.lazy(() => import('./components/CustomerTable/components/CustomerDetail'));
 const InitialApp = React.lazy(() => import('./components/InitialApp/components/InitialApp'));
 const LoginPage = React.lazy(() => import('./LoginPage/components/LoginPage'));
+const ListOfModules = React.lazy(() => import('./ListModules/components/ListOfModules'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -49,6 +50,7 @@ const routes = [
   { path: '/initialApp', name: 'InitialApp', component: InitialApp },
   { path: '/login', name: 'LoginPage', component: LoginPage },
   { path: '/crm', name: 'CustomerTable', component: CustomerTable },
+  { path: '/listOfModules', name: 'ListOfModules', component: ListOfModules },
   { path: '/theme', exact: true, name: 'Theme', component: Customer },
   { path: '/customer/Customer', name: 'Customer', component: Customer },
   { path: '/NewForm', name: 'NewForm', component: NewForm },
