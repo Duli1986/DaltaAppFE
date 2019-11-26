@@ -18,3 +18,14 @@
   margin: auto;
   width: 100%;
 }
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/assets/img/brand/uvodAS.jpg');
+  //  background-color: #258ea6;
+}

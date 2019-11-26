@@ -15,9 +15,6 @@ import {
   AppBreadcrumb2 as AppBreadcrumb,
   AppSidebarNav2 as AppSidebarNav,
 } from '@coreui/react';
-// sidebar nav config
-import navigation from '../../_nav';
-// routes config
 import routes from '../../routes';
 
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
@@ -36,15 +33,8 @@ class DefaultLayout extends Component {
   render() {
     return (
       <div className="app">
-        <AppHeader fixed>
-          <Suspense  fallback={this.loading()}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
-          </Suspense>
-        </AppHeader>
         <div className="app-body">
-
           <main className="main">
-            <AppBreadcrumb appRoutes={routes} router={router}/>
             <Container fluid>
               <Suspense fallback={this.loading()}>
                 <Switch>

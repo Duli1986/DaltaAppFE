@@ -17,6 +17,8 @@ const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
 const LoginPage = React.lazy(() => import('./LoginPage/components/LoginPage'));
 const CustomerTable = React.lazy(() => import('./components/CustomerTable/components/CustomerTable'));
 
+const ListModules = React.lazy(() => import('./ListModules/components/ListModules'));
+
 // Pages
 const Login = React.lazy(() => import('./views/Pages/Login'));
 const Register = React.lazy(() => import('./views/Pages/Register'));
@@ -29,7 +31,7 @@ class App extends Component {
     return (
       <HashRouter>
           <React.Suspense fallback={loading()}>
-              <Route path="/" name="Home" render={props => <LoginPage {...props}/>} />
+              <Route path="/" name="Home" render={props => <ListModules {...props}/>} />
           </React.Suspense>
       </HashRouter>
     );

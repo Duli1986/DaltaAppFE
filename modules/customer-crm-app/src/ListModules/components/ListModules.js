@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Button from "reactstrap/es/Button";
 import {BrowserRouter, Link, withRouter} from "react-router-dom";
 import {Col, Row} from "reactstrap";
-import {NewForm} from "../NewForm/components";
 
 class ListModules extends Component {
 
@@ -31,17 +30,18 @@ class ListModules extends Component {
       <div>
         <Col>
           <Row className="text-center mt-3 mb-3">
+            <Row>
             <Col>
               <Row className="text-center" md="6">
                 <Col>
                   <Row className="float-left">
-                    <Col sm xs="10" className="text-center">
+                    <Col sm xs="3" className="text-center">
                       <Link to="/NewForm">
                         <Button color="secondary"><i
                           className="cui-print icons"></i>&nbsp;Karta</Button>
                       </Link>
                     </Col>
-                    <Col sm xs="10" className="text-center">
+                    <Col sm xs="3" className="text-center">
                       <Link to="/NewForm">
                         <Button color="secondary"><i
                           className="cui-print icons"></i>&nbsp;Seznam</Button>
@@ -51,14 +51,14 @@ class ListModules extends Component {
                 </Col>
                 <Col>
                   <Row>
-                    <Col sm xs="10" className="text-center">
+                    <Col sm xs="3" className="text-center">
                       <Link to="/NewForm">
                         <Button color="primary">
                           <i className="cui-envelope-open icons"></i>&nbsp;Odeslat
                           email</Button>
                       </Link>
                     </Col>
-                    <Col sm xs="10" className="text-center">
+                    <Col sm xs="3" className="text-center">
                       <Link to="/NewForm">
                         <Button color="primary">
                           <i className="cui-envelope-open icons"></i>&nbsp;Odeslat
@@ -69,16 +69,22 @@ class ListModules extends Component {
                 </Col>
               </Row>
             </Col>
+          </Row>
+            <Row>
             <Col>
               <Row className="float-right" md="6">
-                <Col sm xs="10" className="text-center">
+                <Col sm xs="4" className="text-center">
                   <Button color="danger">Odstranit</Button>
                 </Col>
-                <Col sm xs="10" className="text-center">
+                <Col sm xs="4" className="text-center">
                   <Button color="success" onClick={this.routeChange}> + Nový</Button>
+                </Col>
+                <Col sm xs="4" className="text-center">
+                  <Button color="danger">Odstranit</Button>
                 </Col>
               </Row>
             </Col>
+            </Row>
           </Row>
         </Col>
       </div>
