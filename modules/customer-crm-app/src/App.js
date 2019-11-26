@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <HashRouter>
           <React.Suspense fallback={loading()}>
-              <Route path="/" name="Home" render={props => <DefaultLayout {...props}/>} />
+              <Route path="/" name="Home" render={props => <LoginPage {...props}/>} />
           </React.Suspense>
       </HashRouter>
     );

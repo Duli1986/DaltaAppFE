@@ -17,6 +17,7 @@ import {
   AppSidebarNav2 as AppSidebarNav,
 } from '@coreui/react';
 import * as router from 'react-router-dom';
+import FormGroup from "reactstrap/es/FormGroup";
 
 // import navigation from '../../_nav';
 // routes config
@@ -42,15 +43,6 @@ class CustomerTable extends Component {
     return (
       <div className="app">
         <div className="app-body">
-          <AppSidebar fixed display="lg">
-            <AppSidebarHeader />
-            <AppSidebarForm />
-            <Suspense>
-              <AppSidebarNav {...this.props} router={router}/>
-            </Suspense>
-            <AppSidebarFooter />
-            <AppSidebarMinimizer />
-          </AppSidebar>
           <main className="main">
             <Card>
               <Col>
