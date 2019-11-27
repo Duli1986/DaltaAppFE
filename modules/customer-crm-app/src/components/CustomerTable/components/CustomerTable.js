@@ -18,11 +18,17 @@ import {
 } from '@coreui/react';
 import * as router from 'react-router-dom';
 import FormGroup from "reactstrap/es/FormGroup";
+import DefaultHeader from "../../../containers/DefaultLayout/DefaultHeader";
+import Header from "../../../containers/Header/Header";
+import InitialApp from "../../InitialApp/components/InitialApp";
 
 // import navigation from '../../_nav';
 // routes config
 
+
 class CustomerTable extends Component {
+
+  loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   constructor(props) {
     super(props);
@@ -42,7 +48,25 @@ class CustomerTable extends Component {
   render() {
     return (
       <div className="app">
+        <Card>
+          <Col>
+        <AppHeader>
+          <Suspense  fallback={this.loading()}>
+            <Header />
+          </Suspense>
+        </AppHeader>
+          </Col>
+        </Card>
         <div className="app-body">
+          <AppSidebar display="lg">
+            <AppSidebarHeader />
+            <AppSidebarForm />
+            <Suspense>
+              <InitialApp {...this.props}/>
+            </Suspense>
+            <AppSidebarFooter />
+            <AppSidebarMinimizer />
+          </AppSidebar>
           <main className="main">
             <Card>
               <Col>

@@ -23,7 +23,7 @@ class CancelButton extends Component {
     return (
       <div>
         <div style={{float: 'right'}}>
-          <Link to="/Dashboard">
+          <Link to="/crm">
             <Button color="danger">Zrušit</Button>
           </Link>
         </div>
