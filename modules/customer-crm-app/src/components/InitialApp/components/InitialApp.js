@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import auto from '../../../assets/img/brand/autoSuper.png'
+import {Col, Row} from "reactstrap";
+import Button from "reactstrap/es/Button";
 
 class InitialApp extends Component {
   constructor(props) {
