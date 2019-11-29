@@ -107,9 +107,9 @@ class Car extends Component {
 }
 
 Car.propTypes = {
-  vysneny: PropTypes.object.isRequired,
-  novy: PropTypes.object.isRequired,
-  predchozi: PropTypes.object.isRequired,
+  vysneny: PropTypes.string.isRequired,
+  novy: PropTypes.string.isRequired,
+  predchozi: PropTypes.string.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -122,4 +122,8 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps)(Car);
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Car);
