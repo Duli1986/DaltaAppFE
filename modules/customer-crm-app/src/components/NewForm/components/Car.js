@@ -7,24 +7,29 @@ import {
   Form,
   FormGroup,
   Input,
-  Label, Row
+  Label
 } from "reactstrap";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class Car extends Component {
-  state = {
-    predchozi: "",
-    novy: "",
-    vysneny: "",
-  };
+  constructor() {
+    super();
+    this.state = {
+      predchozi: '',
+      novy: '',
+      vysneny: '',
+      errors: {}
+    };
+  }
 
-  change = e => {
-    this.props.onChange({[e.target.name]: e.target.value});
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
+    const { errors, predchozi, novy, vysneny } = this.state;
+
     return (
       <Col xs="5">
         <Card>
@@ -42,8 +47,8 @@ class Car extends Component {
                          name="predchozi"
                          id="select"
                          value={this.state.predchozi}
-                         onChange={e => this.setState(
-                           {predchozi: e.target.value})}
+                         onChange={this.onChange}
+                         error={errors.predchozi}
                   >
                     <option value="0">-----</option>
                     <option value="1">BMW</option>
@@ -62,8 +67,8 @@ class Car extends Component {
                          name="novy"
                          id="select"
                          value={this.state.novy}
-                         onChange={e => this.setState(
-                           {novy: e.target.value})}
+                         onChange={this.onChange}
+                         error={errors.novy}
                   >
                     <option value="0">-----</option>
                     <option value="1">BMW</option>
@@ -82,8 +87,8 @@ class Car extends Component {
                          name="vysneny"
                          id="select"
                          value={this.state.vysneny}
-                         onChange={e => this.setState(
-                           {vysneny: e.target.value})}
+                         onChange={this.onChange}
+                         error={errors.vysneny}
                   >
                     <option value="0">-----</option>
                     <option value="1">BMW</option>
@@ -101,4 +106,20 @@ class Car extends Component {
   }
 }
 
-export default Car;
+Car.propTypes = {
+  vysneny: PropTypes.object.isRequired,
+  novy: PropTypes.object.isRequired,
+  predchozi: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  novy: state.novy,
+  vysneny: state.vysneny,
+  predchozi: state.predchozi,
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps)(Car);

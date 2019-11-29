@@ -28,7 +28,12 @@ class LoginPage extends Component {
     this.props.history.push('/listOfModules')
   }
 
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
   render() {
+    const { errors } = this.state;
 
     return (
       <div className="LoginPage">
@@ -47,8 +52,13 @@ class LoginPage extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username"
-                               autoComplete="username"/>
+                        <Input type="text"
+                               placeholder="Username"
+                               name="username"
+                               value={this.state.username}
+                               onChange={this.onChange}
+                               error={errors.username}
+                        />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -56,8 +66,13 @@ class LoginPage extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password"
-                               autoComplete="current-password"/>
+                        <Input type="password"
+                               placeholder="Password"
+                               name="password"
+                               value={this.state.password}
+                               onChange={this.onChange}
+                               error={errors.password}
+                        />
                       </InputGroup>
                       <Row>
                         <Col xs="5">

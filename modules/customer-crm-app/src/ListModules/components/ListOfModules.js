@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Button from "reactstrap/es/Button";
 import {BrowserRouter, Link, withRouter} from "react-router-dom";
 import {Col, Row} from "reactstrap";
+import { connect } from 'react-redux';
 
 class ListOfModules extends Component {
 
@@ -71,4 +72,8 @@ class ListOfModules extends Component {
   }
 }
 
-export default withRouter (ListOfModules);
+const mapStateToProps = state => ({
+  profile: state.profile
+});
+
+export default connect(mapStateToProps)(withRouter(ListOfModules));
