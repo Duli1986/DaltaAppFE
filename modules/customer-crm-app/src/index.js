@@ -7,19 +7,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {applyMiddleware, createStore, compose } from "redux";
-import rootReducer from "./reducers";
 import { Provider } from 'react-redux'
+import configureStore from "./store/configureStore";
 
-const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware())
-);
+const stores = configureStore();
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={stores}>
     <App />
   </Provider>
   ,

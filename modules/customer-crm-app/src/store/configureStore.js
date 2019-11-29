@@ -1,8 +1,12 @@
 import {applyMiddleware, createStore} from "redux";
 import rootReducer from "../reducers";
-import {composeWithDevTools} from "redux-devtools-extension";
-import middleware from "react-dedux";
+import {composeWithDevTools} from "redux-devtools-extension/logOnlyInProduction";
+import thunk from "redux-thunk";
 
-export default (initialState) => {
-  return createStore(rootReducer, initialState);
+const initialState = {};
+
+const middleware = [thunk];
+
+export default () => {
+  return createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));
 }

@@ -33,10 +33,10 @@ class ListOfModules extends Component {
         <Col>
           <Row>
             <Col>
-              <Button color="warning">CRM</Button>
+              <Button onClick={this.routeChangeCrm} color="warning">CRM</Button>
             </Col>
             <Col >
-              <Button  onClick={this.routeChangeCrm}>SKLAD</Button>
+              <Button color="danger" onClick={this.routeChangeSklady}>SKLAD</Button>
             </Col>
             <Col>
               <Button color="danger" onClick={this.routeChangeSklady}>ZAKÁZKY</Button>

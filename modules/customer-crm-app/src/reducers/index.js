@@ -1,14 +1,10 @@
 import { combineReducers } from 'redux';
-import { compose, defaultTo, identity } from 'ramda';
-
-const dummyReducer = compose(
-  identity,
-  defaultTo({})
-);
+import authReducer from './authReducer';
+import errorReducer from './errorReducer';
 
 const rootReducer = combineReducers({
-      negotiationForm: dummyReducer,
-      globalErrors: dummyReducer
+  auth: authReducer,
+  errors: errorReducer
     });
 
 export default rootReducer;
