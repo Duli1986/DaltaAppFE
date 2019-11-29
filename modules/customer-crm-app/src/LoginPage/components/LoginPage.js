@@ -9,8 +9,19 @@ import {
   InputGroup, InputGroupAddon, InputGroupText,
   Row
 } from "reactstrap";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class LoginPage extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      username: '',
+      password: '',
+      errors: {}
+    };
+  }
 
   signIn = (e) => {
     e.preventDefault()
@@ -18,6 +29,7 @@ class LoginPage extends Component {
   }
 
   render() {
+
     return (
       <div className="LoginPage">
         <div className="app flex-row align-items-center">
@@ -69,4 +81,14 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+LoginPage.propTypes = {
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps)(LoginPage);
