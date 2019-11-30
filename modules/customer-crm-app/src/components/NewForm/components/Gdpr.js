@@ -7,14 +7,19 @@ import {
   Form,
   FormGroup,
   Input,
-  Label, Row
+  Label
 } from "reactstrap";
+import PropTypes from "prop-types";
+import {bindActionCreators} from "redux";
+import {addCompany, addGdpr} from "../../../actions/fromActions";
+import {connect} from "react-redux";
 
 class Gdpr extends Component {
   state = {
-    rodinnyStav: "",
-    pocetDeti: "",
-    konicky: "",
+    rodinnyStav: '',
+    pocetDeti: '',
+    konicky: '',
+    errors: {}
   };
 
   change = e => {
@@ -69,4 +74,30 @@ class Gdpr extends Component {
   }
 }
 
-export default Gdpr;
+Company.propTypes = {
+  firma: PropTypes.string.isRequired,
+  poziceVeFirme: PropTypes.string.isRequired,
+  ico: PropTypes.string.isRequired,
+  dic: PropTypes.string.isRequired,
+  faktAdresa: PropTypes.string.isRequired,
+  bankSpojeni: PropTypes.string.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  firma: state.firma,
+  poziceVeFirme: state.poziceVeFirme,
+  ico: state.ico,
+  dic: state.dic,
+  faktAdresa: state.faktAdresa,
+  bankSpojeni: state.bankSpojeni,
+  errors: state.errors
+});
+
+const mapDispatchToProps = (state, dispatch) => {
+  bindActionCreators({
+    company: addGdpr(state),
+  }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Gdpr);

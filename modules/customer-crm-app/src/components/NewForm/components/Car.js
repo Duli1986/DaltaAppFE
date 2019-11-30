@@ -11,6 +11,8 @@ import {
 } from "reactstrap";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {addCar} from "../../../actions/fromActions";
 
 class Car extends Component {
   constructor() {
@@ -46,7 +48,7 @@ class Car extends Component {
                   <Input type="select"
                          name="predchozi"
                          id="select"
-                         value={this.state.predchozi}
+                         value={predchozi}
                          onChange={this.onChange}
                          error={errors.predchozi}
                   >
@@ -66,7 +68,7 @@ class Car extends Component {
                   <Input type="select"
                          name="novy"
                          id="select"
-                         value={this.state.novy}
+                         value={novy}
                          onChange={this.onChange}
                          error={errors.novy}
                   >
@@ -86,7 +88,7 @@ class Car extends Component {
                   <Input type="select"
                          name="vysneny"
                          id="select"
-                         value={this.state.vysneny}
+                         value={vysneny}
                          onChange={this.onChange}
                          error={errors.vysneny}
                   >
@@ -110,7 +112,6 @@ Car.propTypes = {
   vysneny: PropTypes.string.isRequired,
   novy: PropTypes.string.isRequired,
   predchozi: PropTypes.string.isRequired,
-  auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 
@@ -118,12 +119,13 @@ const mapStateToProps = (state) => ({
   novy: state.novy,
   vysneny: state.vysneny,
   predchozi: state.predchozi,
-  auth: state.auth,
   errors: state.errors
 });
 
-const mapDispatchToProps = (dispatch) => ({
-
-});
+const mapDispatchToProps = (state, dispatch) => {
+   bindActionCreators({
+    car: addCar(state),
+  }, dispatch)
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Car);

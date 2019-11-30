@@ -7,27 +7,31 @@ import {
   Form,
   FormGroup,
   Input,
-  Label, Row
+  Label
 } from "reactstrap";
+import PropTypes from "prop-types";
+import {bindActionCreators} from "redux";
+import { addCompany } from "../../../actions/fromActions";
+import {connect} from "react-redux";
 
 class Company extends Component {
   state = {
-    firma: "",
-    poziceVeFirme: "",
-    ico: "",
-    dic: "",
-    faktAdresa: "",
-    bankSpojeni: "",
+    firma: '',
+    poziceVeFirme: '',
+    ico: '',
+    dic: '',
+    faktAdresa: '',
+    bankSpojeni: '',
+    errors: {}
   };
 
-  change = e => {
-    this.props.onChange({[e.target.name]: e.target.value});
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
+    const { errors, firma, poziceVeFirme, ico, dic, faktAdresa, bankSpojeni } = this.state;
+
     return (
       <Col xs="5">
         <Card>
@@ -43,8 +47,9 @@ class Company extends Component {
                     bsSize="sl"
                     name="firma"
                     placeholder="Firma"
-                    value={this.state.firma}
-                    onChange={e => this.setState({firma: e.target.value})}
+                    value={firma}
+                    onChange={this.onChange}
+                    error={errors.firma}
                   />
                 </Col>
               </FormGroup>
@@ -55,9 +60,9 @@ class Company extends Component {
                     bsSize="sl"
                     name="poziceVeFirme"
                     placeholder="Pozice ve firmě"
-                    value={this.state.poziceVeFirme}
-                    onChange={e => this.setState(
-                      {poziceVeFirme: e.target.value})}
+                    value={poziceVeFirme}
+                    onChange={this.onChange}
+                    error={errors.firma}
                   />
                 </Col>
               </FormGroup>
@@ -68,8 +73,9 @@ class Company extends Component {
                     bsSize="sl"
                     name="ico"
                     placeholder="IČO"
-                    value={this.state.ico}
-                    onChange={e => this.setState({ico: e.target.value})}
+                    value={ico}
+                    onChange={this.onChange}
+                    error={errors.firma}
                   />
                 </Col>
               </FormGroup>
@@ -80,8 +86,9 @@ class Company extends Component {
                     bsSize="sl"
                     name="dic"
                     placeholder="DIČ"
-                    value={this.state.dic}
-                    onChange={e => this.setState({dic: e.target.value})}
+                    value={dic}
+                    onChange={this.onChange}
+                    error={errors.firma}
                   />
                 </Col>
               </FormGroup>
@@ -92,8 +99,9 @@ class Company extends Component {
                     bsSize="sl"
                     name="faktAdresa"
                     placeholder="Fakturační adresa"
-                    value={this.state.faktAdresa}
-                    onChange={e => this.setState({faktAdresa: e.target.value})}
+                    value={faktAdresa}
+                    onChange={this.onChange}
+                    error={errors.faktAdresa}
                   />
                 </Col>
               </FormGroup>
@@ -104,8 +112,9 @@ class Company extends Component {
                     bsSize="sl"
                     name="bankSpojeni"
                     placeholder="Bankovní spojení"
-                    value={this.state.bankSpojeni}
-                    onChange={e => this.setState({bankSpojeni: e.target.value})}
+                    value={bankSpojeni}
+                    onChange={this.onChange}
+                    error={errors.bankSpojeni}
                   />
                 </Col>
               </FormGroup>
@@ -117,4 +126,30 @@ class Company extends Component {
   }
 }
 
-export default Company;
+Company.propTypes = {
+  firma: PropTypes.string.isRequired,
+  poziceVeFirme: PropTypes.string.isRequired,
+  ico: PropTypes.string.isRequired,
+  dic: PropTypes.string.isRequired,
+  faktAdresa: PropTypes.string.isRequired,
+  bankSpojeni: PropTypes.string.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  firma: state.firma,
+  poziceVeFirme: state.poziceVeFirme,
+  ico: state.ico,
+  dic: state.dic,
+  faktAdresa: state.faktAdresa,
+  bankSpojeni: state.bankSpojeni,
+  errors: state.errors
+});
+
+const mapDispatchToProps = (state, dispatch) => {
+  bindActionCreators({
+    company: addCompany(state),
+  }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Company);
