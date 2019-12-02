@@ -74,13 +74,10 @@ class Gdpr extends Component {
   }
 }
 
-Company.propTypes = {
+Gdpr.propTypes = {
   firma: PropTypes.string.isRequired,
   poziceVeFirme: PropTypes.string.isRequired,
   ico: PropTypes.string.isRequired,
-  dic: PropTypes.string.isRequired,
-  faktAdresa: PropTypes.string.isRequired,
-  bankSpojeni: PropTypes.string.isRequired,
   errors: PropTypes.object.isRequired
 };
 
@@ -88,15 +85,12 @@ const mapStateToProps = (state) => ({
   firma: state.firma,
   poziceVeFirme: state.poziceVeFirme,
   ico: state.ico,
-  dic: state.dic,
-  faktAdresa: state.faktAdresa,
-  bankSpojeni: state.bankSpojeni,
   errors: state.errors
 });
 
-const mapDispatchToProps = (state, dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   bindActionCreators({
-    company: addGdpr(state),
+    addGdpr,
   }, dispatch)
 };
 

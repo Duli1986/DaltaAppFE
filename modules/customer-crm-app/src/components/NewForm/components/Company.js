@@ -48,7 +48,7 @@ class Company extends Component {
                     name="firma"
                     placeholder="Firma"
                     value={firma}
-                    onChange={this.onChange}
+                    onChange={addCompany}
                     error={errors.firma}
                   />
                 </Col>
@@ -61,7 +61,7 @@ class Company extends Component {
                     name="poziceVeFirme"
                     placeholder="Pozice ve firmě"
                     value={poziceVeFirme}
-                    onChange={this.onChange}
+                    onChange={addCompany}
                     error={errors.firma}
                   />
                 </Col>
@@ -74,7 +74,7 @@ class Company extends Component {
                     name="ico"
                     placeholder="IČO"
                     value={ico}
-                    onChange={this.onChange}
+                    onChange={addCompany}
                     error={errors.firma}
                   />
                 </Col>
@@ -87,7 +87,7 @@ class Company extends Component {
                     name="dic"
                     placeholder="DIČ"
                     value={dic}
-                    onChange={this.onChange}
+                    onChange={addCompany}
                     error={errors.firma}
                   />
                 </Col>
@@ -100,7 +100,7 @@ class Company extends Component {
                     name="faktAdresa"
                     placeholder="Fakturační adresa"
                     value={faktAdresa}
-                    onChange={this.onChange}
+                    onChange={addCompany}
                     error={errors.faktAdresa}
                   />
                 </Col>
@@ -113,7 +113,7 @@ class Company extends Component {
                     name="bankSpojeni"
                     placeholder="Bankovní spojení"
                     value={bankSpojeni}
-                    onChange={this.onChange}
+                    onChange={addCompany}
                     error={errors.bankSpojeni}
                   />
                 </Col>
@@ -146,9 +146,9 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-const mapDispatchToProps = (state, dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   bindActionCreators({
-    company: addCompany(state),
+    addCompany,
   }, dispatch)
 };
 

@@ -30,7 +30,7 @@ class Car extends Component {
   };
 
   render() {
-    const { errors, predchozi, novy, vysneny } = this.state;
+    const { errors, predchozi, novy, vysneny, addCar } = this.state;
 
     return (
       <Col xs="5">
@@ -49,7 +49,7 @@ class Car extends Component {
                          name="predchozi"
                          id="select"
                          value={predchozi}
-                         onChange={this.onChange}
+                         onChange={addCar}
                          error={errors.predchozi}
                   >
                     <option value="0">-----</option>
@@ -69,7 +69,7 @@ class Car extends Component {
                          name="novy"
                          id="select"
                          value={novy}
-                         onChange={this.onChange}
+                         onChange={addCar}
                          error={errors.novy}
                   >
                     <option value="0">-----</option>
@@ -89,7 +89,7 @@ class Car extends Component {
                          name="vysneny"
                          id="select"
                          value={vysneny}
-                         onChange={this.onChange}
+                         onChange={addCar}
                          error={errors.vysneny}
                   >
                     <option value="0">-----</option>
@@ -122,9 +122,9 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-const mapDispatchToProps = (state, dispatch) => {
+const mapDispatchToProps = (dispatch) => {
    bindActionCreators({
-    car: addCar(state),
+    addCar,
   }, dispatch)
 };
 
