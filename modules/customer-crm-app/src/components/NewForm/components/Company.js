@@ -56,7 +56,7 @@ class Company extends Component {
                     placeholder="Firma"
                     value={firma}
                     onChange={addCompany}
-                    error={errors.firma}
+                    error={firma}
                   />
                 </Col>
               </FormGroup>
@@ -69,7 +69,7 @@ class Company extends Component {
                     placeholder="Pozice ve firmě"
                     value={poziceVeFirme}
                     onChange={addCompany}
-                    error={errors.firma}
+                    error={poziceVeFirme}
                   />
                 </Col>
               </FormGroup>
@@ -82,7 +82,7 @@ class Company extends Component {
                     placeholder="IČO"
                     value={ico}
                     onChange={addCompany}
-                    error={errors.firma}
+                    error={ico}
                   />
                 </Col>
               </FormGroup>
@@ -95,7 +95,7 @@ class Company extends Component {
                     placeholder="DIČ"
                     value={dic}
                     onChange={addCompany}
-                    error={errors.firma}
+                    error={dic}
                   />
                 </Col>
               </FormGroup>
@@ -108,7 +108,7 @@ class Company extends Component {
                     placeholder="Fakturační adresa"
                     value={faktAdresa}
                     onChange={addCompany}
-                    error={errors.faktAdresa}
+                    error={faktAdresa}
                   />
                 </Col>
               </FormGroup>
@@ -121,7 +121,7 @@ class Company extends Component {
                     placeholder="Bankovní spojení"
                     value={bankSpojeni}
                     onChange={addCompany}
-                    error={errors.bankSpojeni}
+                    error={bankSpojeni}
                   />
                 </Col>
               </FormGroup>

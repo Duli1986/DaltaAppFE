@@ -1,15 +1,22 @@
 import {path, identity, prop, o} from 'ramda';
 import { createSelector } from 'reselect';
+import {defaultToEmptyObject} from "ramda-extension";
 
-const creteFormDataPath = path(['createForm', 'form']);
+export const newFormDataPath = ['createForm', 'form'];
+export const newFormData = path(newFormDataPath);
 
-export const getCreateFormData = getNewFormData('company');
+const getCreateForm = createSelector(
+  newFormData,
+  identity
+);
 
 export const getNewFormData = (propName) =>
   createSelector(
     [getCreateForm],
     prop(propName)
   );
+
+export const getCreateFormData = o(defaultToEmptyObject, getNewFormData('company'));
 
 /**
  * Get form data from createForm
@@ -21,10 +28,6 @@ export const getNewFormData = (propName) =>
  *    getCreateFormData(state)
  *
  */
-const getCreateForm = createSelector(
-  creteFormDataPath,
-  identity
-);
 
 
 export const getFrima = createSelector(
