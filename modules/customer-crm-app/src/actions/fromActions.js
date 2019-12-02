@@ -19,15 +19,17 @@ export const addCar = (state, dispatch) => {
 export const addCompany = (state, dispatch) => {
   dispatch(
     assocNewFormData({
-      createFrom: {
-        company: {
-          firma: state.firma,
-          poziceVeFirme: state.poziceVeFirme,
-          ico: state.ico,
-          dic: state.dic,
-          faktAdresa: state.faktAdresa,
-          bankSpojeni: state.bankSpojeni,
-          errors: state.errors
+      createForm: {
+        form: {
+          company: {
+            firma: state.firma,
+            poziceVeFirme: state.poziceVeFirme,
+            ico: state.ico,
+            dic: state.dic,
+            faktAdresa: state.faktAdresa,
+            bankSpojeni: state.bankSpojeni,
+            errors: state.errors
+          }
         }
       },
       description: 'CREATE_COMPANY_DATA',

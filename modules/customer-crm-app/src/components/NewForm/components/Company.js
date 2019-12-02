@@ -13,6 +13,13 @@ import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import { addCompany } from "../../../actions/fromActions";
 import {connect} from "react-redux";
+import {
+  getBankSpojeni,
+  getDic, getErrors, getFaktAdresa,
+  getFrima,
+  getIco,
+  getPoziceVeFirme
+} from "../../../selectors/company";
 
 class Company extends Component {
   state = {
@@ -30,7 +37,7 @@ class Company extends Component {
   };
 
   render() {
-    const { errors, firma, poziceVeFirme, ico, dic, faktAdresa, bankSpojeni } = this.state;
+    const { errors, firma, poziceVeFirme, ico, dic, faktAdresa, bankSpojeni, addCompany } = this.props;
 
     return (
       <Col xs="5">
@@ -137,13 +144,13 @@ Company.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  firma: state.firma,
-  poziceVeFirme: state.poziceVeFirme,
-  ico: state.ico,
-  dic: state.dic,
-  faktAdresa: state.faktAdresa,
-  bankSpojeni: state.bankSpojeni,
-  errors: state.errors
+  firma: getFrima(state),
+  poziceVeFirme: getPoziceVeFirme(state),
+  ico: getIco(state),
+  dic: getDic(state),
+  faktAdresa: getFaktAdresa(state),
+  bankSpojeni: getBankSpojeni(state),
+  errors: getErrors(state)
 });
 
 const mapDispatchToProps = (dispatch) => {
