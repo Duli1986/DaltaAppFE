@@ -30,7 +30,7 @@ class Car extends Component {
   };
 
   render() {
-    const { errors, predchozi, novy, vysneny, addCar } = this.state;
+    const { errors, predchozi, novy, vysneny, addCar } = this.props;
 
     return (
       <Col xs="5">

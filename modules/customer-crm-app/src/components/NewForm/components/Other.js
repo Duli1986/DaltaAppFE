@@ -7,24 +7,27 @@ import {
   Form,
   FormGroup,
   Input,
-  Label, Row
+  Label
 } from "reactstrap";
+import PropTypes from "prop-types";
+import {bindActionCreators} from "redux";
+import {addOther} from "../../../actions/fromActions";
+import {connect} from "react-redux";
 
 class Other extends Component {
   state = {
-    rodinnyStav: "",
-    pocetDeti: "",
-    konicky: "",
+    rodinnyStav: '',
+    pocetDeti: '',
+    konicky: '',
   };
 
-  change = e => {
-    this.props.onChange({[e.target.name]: e.target.value});
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
+    const { rodinnyStav, pocetDeti, konicky } = this.props;
+
     return (
       <Col xs="5">
         <Card>
@@ -41,9 +44,8 @@ class Other extends Component {
                   <Input type="select"
                          name="rodinnyStav"
                          id="select"
-                         value={this.state.rodinnyStav}
-                         onChange={e => this.setState(
-                           {rodinnyStav: e.target.value})}
+                         value={rodinnyStav}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">Svobodný</option>
@@ -61,9 +63,8 @@ class Other extends Component {
                   <Input type="select"
                          name="pocetDeti"
                          id="select"
-                         value={this.state.pocetDeti}
-                         onChange={e => this.setState(
-                           {pocetDeti: e.target.value})}
+                         value={pocetDeti}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">1</option>
@@ -81,9 +82,8 @@ class Other extends Component {
                   <Input type="select"
                          name="konicky"
                          id="select"
-                         value={this.state.konicky}
-                         onChange={e => this.setState(
-                           {konicky: e.target.value})}
+                         value={konicky}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">sport</option>
@@ -114,4 +114,22 @@ class Other extends Component {
   }
 }
 
-export default Other;
+Other.propTypes = {
+  rodinnyStav: PropTypes.string.isRequired,
+  pocetDeti: PropTypes.string.isRequired,
+  konicky: PropTypes.string.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  rodinnyStav: state.rodinnyStav,
+  pocetDeti: state.pocetDeti,
+  konicky: state.konicky
+});
+
+const mapDispatchToProps = (dispatch) => {
+  bindActionCreators({
+    addOther,
+  }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Other);

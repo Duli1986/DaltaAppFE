@@ -7,23 +7,26 @@ import {
   Form,
   FormGroup,
   Input,
-  Label, Row
+  Label
 } from "reactstrap";
+import PropTypes from "prop-types";
+import {bindActionCreators} from "redux";
+import {addNewCustomer} from "../../../actions/fromActions";
+import {connect} from "react-redux";
 
 class NewCustomer extends Component {
   state = {
-    porCislo: "",
-    oddeleni: "",
+    porCislo: '',
+    oddeleni: ''
   };
 
-  change = e => {
-    this.props.onChange({[e.target.name]: e.target.value});
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
+    const { porCislo, oddeleni } = this.props;
+
     return (
       <Col xs="5">
         <Card>
@@ -39,8 +42,8 @@ class NewCustomer extends Component {
                     bsSize="sl"
                     name="porCislo"
                     placeholder="Pořadové číslo"
-                    value={this.state.porCislo}
-                    onChange={e => this.setState({porCislo: e.target.value})}
+                    value={porCislo}
+                    onChange={this.onChange}
                   />
                 </Col>
               </FormGroup>
@@ -52,9 +55,8 @@ class NewCustomer extends Component {
                   <Input type="select"
                          name="oddeleni"
                          id="select"
-                         value={this.state.oddeleni}
-                         onChange={e => this.setState(
-                           {oddeleni: e.target.value})}
+                         value={oddeleni}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">Showroom</option>
@@ -72,4 +74,20 @@ class NewCustomer extends Component {
   }
 }
 
-export default NewCustomer;
+NewCustomer.propTypes = {
+  porCislo: PropTypes.string.isRequired,
+  oddeleni: PropTypes.string.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  porCislo: state.novy,
+  oddeleni: state.vysneny
+});
+
+const mapDispatchToProps = (dispatch) => {
+  bindActionCreators({
+    addNewCustomer,
+  }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCustomer);

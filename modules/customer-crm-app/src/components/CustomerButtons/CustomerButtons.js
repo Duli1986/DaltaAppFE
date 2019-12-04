@@ -13,7 +13,7 @@ class CustomerButtons extends Component {
       disable: false
     };
     this._onButtonClick = this._onButtonClick.bind(this);
-    this.routeChange = this.routeChange.bind(this);
+    // this.routeChange = this.routeChange.bind(this);
   }
 
   _onButtonClick() {
@@ -22,9 +22,9 @@ class CustomerButtons extends Component {
     });
   }
 
-  routeChange() {
+ /* routeChange() {
     this.props.history.push('/NewForm');
-  }
+  }*/
 
   render() {
     return (
@@ -75,7 +75,9 @@ class CustomerButtons extends Component {
                     <Button color="danger">Odstranit</Button>
                 </Col>
                 <Col sm xs="10" className="text-center">
-                    <Button color="success" onClick={this.routeChange}> + Nový</Button>
+                  <Link to="/newForm">
+                    <Button color="success"> + Nový</Button>
+                  </Link>
                 </Col>
               </Row>
             </Col>

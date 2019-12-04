@@ -9,32 +9,40 @@ import {
   Input,
   Label
 } from "reactstrap";
+import PropTypes from "prop-types";
+import {bindActionCreators} from "redux";
+import { addPersonalData} from "../../../actions/fromActions";
+import {connect} from "react-redux";
 
 class PersonalData extends Component {
   state = {
-    pohlavi: "",
-    firstName: "",
-    surname: "",
-    birthDate: "",
-    phone: "",
-    mail: "",
-    ulice: "",
-    cp: "",
-    psc: "",
-    mesto: "",
-    narodnost: "",
-    jazyk: "",
-    bankAcount: ""
+    pohlavi: '',
+    firstName: '',
+    surname: '',
+    birthDate: '',
+    phone: '',
+    mail: '',
+    ulice: '',
+    cp: '',
+    psc: '',
+    mesto: '',
+    narodnost: '',
+    jazyk: '',
+    bankAcount: '',
+    option1: '',
+    option2: '',
+    option3: '',
+    option4: ''
   };
 
-  change = e => {
-    this.props.onChange({[e.target.name]: e.target.value});
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
+    const { pohlavi, firstName, surname, birthDate, phone, mail, ulice,
+      cp, psc, mesto, narodnost, jazyk, bankAcount, option1, option2, option3, option4 } = this.props;
+
     return (
       <Col xs="5">
         <Card>
@@ -51,9 +59,8 @@ class PersonalData extends Component {
                   <Input type="select"
                          name="pohlavi"
                          id="select"
-                         value={this.state.pohlavi}
-                         onChange={e => this.setState(
-                           {pohlavi: e.target.value})}
+                         value={pohlavi}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">Muž</option>
@@ -68,8 +75,8 @@ class PersonalData extends Component {
                     bsSize="sl"
                     name="firstName"
                     placeholder="Jmeno"
-                    value={this.state.firstName}
-                    onChange={e => this.setState({firstName: e.target.value})}
+                    value={firstName}
+                    onChange={this.onChange}
                   />
                 </Col>
               </FormGroup>
@@ -80,8 +87,8 @@ class PersonalData extends Component {
                     bsSize="sl"
                     name="surname"
                     placeholder="Prijmení"
-                    value={this.state.surname}
-                    onChange={e => this.setState({surname: e.target.value})}
+                    value={surname}
+                    onChange={this.onChange}
                   />
                 </Col>
               </FormGroup>
@@ -92,8 +99,8 @@ class PersonalData extends Component {
                     bsSize="sl"
                     name="birthDate"
                     placeholder="Datum narození"
-                    value={this.state.birthDate}
-                    onChange={e => this.setState({birthDate: e.target.value})}
+                    value={birthDate}
+                    onChange={this.onChange}
                   />
                 </Col>
               </FormGroup>
@@ -104,8 +111,8 @@ class PersonalData extends Component {
                     bsSize="sl"
                     name="phone"
                     placeholder="Jmeno"
-                    value={this.state.phone}
-                    onChange={e => this.setState({phone: e.target.value})}
+                    value={phone}
+                    onChange={this.onChange}
                   />
                 </Col>
               </FormGroup>
@@ -116,8 +123,8 @@ class PersonalData extends Component {
                     bsSize="sl"
                     name="mail"
                     placeholder="E-mail"
-                    value={this.state.mail}
-                    onChange={e => this.setState({mail: e.target.value})}
+                    value={mail}
+                    onChange={this.onChange}
                   />
                 </Col>
               </FormGroup>
@@ -130,9 +137,8 @@ class PersonalData extends Component {
                     <Input type="text"
                            name="ulice"
                            placeholder="Ulice"
-                           value={this.state.ulice}
-                           onChange={e => this.setState(
-                             {ulice: e.target.value})}
+                           value={ulice}
+                           onChange={this.onChange}
                     />
                   </FormGroup>
                 </Col>
@@ -141,8 +147,8 @@ class PersonalData extends Component {
                     <Input type="text"
                            name="cp"
                            placeholder="Č.P."
-                           value={this.state.cp}
-                           onChange={e => this.setState({cp: e.target.value})}
+                           value={cp}
+                           onChange={this.onChange}
                     />
                   </FormGroup>
                 </Col>
@@ -151,8 +157,8 @@ class PersonalData extends Component {
                     <Input type="text"
                            name="psc"
                            placeholder="PSČ"
-                           value={this.state.psc}
-                           onChange={e => this.setState({psc: e.target.value})}
+                           value={psc}
+                           onChange={this.onChange}
                     />
                   </FormGroup>
                 </Col>
@@ -161,9 +167,8 @@ class PersonalData extends Component {
                     <Input type="text"
                            name="mesto"
                            placeholder="Město"
-                           value={this.state.mesto}
-                           onChange={e => this.setState(
-                             {mesto: e.target.value})}
+                           value={mesto}
+                           onChange={this.onChange}
                     />
                   </FormGroup>
                 </Col>
@@ -176,9 +181,8 @@ class PersonalData extends Component {
                   <Input type="select"
                          name="narodnost"
                          id="select"
-                         value={this.state.narodnost}
-                         onChange={e => this.setState(
-                           {narodnost: e.target.value})}
+                         value={narodnost}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">Česká</option>
@@ -194,9 +198,8 @@ class PersonalData extends Component {
                   <Input type="select"
                          name="jazyk"
                          id="select"
-                         value={this.state.jazyk}
-                         onChange={e => this.setState(
-                           {jazyk: e.target.value})}
+                         value={jazyk}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">Čeština</option>
@@ -216,8 +219,8 @@ class PersonalData extends Component {
                     bsSize="sl"
                     name="bankAcount"
                     placeholder="Bankovní účet"
-                    value={this.state.bankAcount}
-                    onChange={e => this.setState({bankAcount: e.target.value})}
+                    value={bankAcount}
+                    onChange={this.onChange}
                   />
                 </Col>
               </FormGroup>
@@ -229,7 +232,9 @@ class PersonalData extends Component {
                   <FormGroup check inline>
                     <Input className="form-check-input" type="checkbox"
                            id="inline-checkbox1" name="inline-checkbox1"
-                           value="option1"/>
+                           value={option1}
+                           onChange={this.onChange}
+                    />
                     <Label className="form-check-label" check
                            htmlFor="inline-checkbox1"> </Label>
                   </FormGroup>
@@ -237,21 +242,27 @@ class PersonalData extends Component {
                   <FormGroup check inline>
                     <Input className="form-check-input" type="checkbox"
                            id="inline-checkbox2" name="inline-checkbox2"
-                           value="option2"/>
+                           value={option2}
+                           onChange={this.onChange}
+                    />
                     <Label className="form-check-label" check
                            htmlFor="inline-checkbox2"> </Label>
                   </FormGroup>
                   <FormGroup check inline>
                     <Input className="form-check-input" type="checkbox"
                            id="inline-checkbox3" name="inline-checkbox3"
-                           value="option3"/>
+                           value={option3}
+                           onChange={this.onChange}
+                    />
                     <Label className="form-check-label" check
                            htmlFor="inline-checkbox3"> </Label>
                   </FormGroup>
                   <FormGroup check inline>
                     <Input className="form-check-input" type="checkbox"
                            id="inline-checkbox4" name="inline-checkbox4"
-                           value="option4"/>
+                           value={option4}
+                           onChange={this.onChange}
+                    />
                     <Label className="form-check-label" check
                            htmlFor="inline-checkbox4"> </Label>
                   </FormGroup>
@@ -265,4 +276,50 @@ class PersonalData extends Component {
   }
 }
 
-export default PersonalData;
+PersonalData.propTypes = {
+  pohlavi: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  surname: PropTypes.string.isRequired,
+  birthDate: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  mail: PropTypes.string.isRequired,
+  ulice: PropTypes.string.isRequired,
+  cp: PropTypes.string.isRequired,
+  psc: PropTypes.string.isRequired,
+  mesto: PropTypes.string.isRequired,
+  narodnost: PropTypes.string.isRequired,
+  jazyk: PropTypes.string.isRequired,
+  bankAcount: PropTypes.string.isRequired,
+  option1: PropTypes.bool.isRequired,
+  option2: PropTypes.bool.isRequired,
+  option3: PropTypes.bool.isRequired,
+  option4: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  pohlavi: state.pohlavi,
+  firstName: state.firstName,
+  surname: state.surname,
+  birthDate: state.birthDate,
+  phone: state.phone,
+  mail: state.mail,
+  ulice: state.ulice,
+  cp: state.cp,
+  psc: state.psc,
+  mesto: state.mesto,
+  narodnost: state.narodnost,
+  jazyk: state.jazyk,
+  bankAcount: state.novy,
+  option1: state.option1,
+  option2: state.option2,
+  option3: state.option3,
+  option4: state.option4
+});
+
+const mapDispatchToProps = (dispatch) => {
+  bindActionCreators({
+    addPersonalData,
+  }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalData);

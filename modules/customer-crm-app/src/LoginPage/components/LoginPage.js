@@ -34,6 +34,7 @@ class LoginPage extends Component {
 
   render() {
     const { errors } = this.state;
+    const { username, password } = this.props;
 
     return (
       <div className="LoginPage">
@@ -55,7 +56,7 @@ class LoginPage extends Component {
                         <Input type="text"
                                placeholder="Username"
                                name="username"
-                               value={this.state.username}
+                               value={username}
                                onChange={this.onChange}
                                error={errors.username}
                         />
@@ -69,7 +70,7 @@ class LoginPage extends Component {
                         <Input type="password"
                                placeholder="Password"
                                name="password"
-                               value={this.state.password}
+                               value={password}
                                onChange={this.onChange}
                                error={errors.password}
                         />
