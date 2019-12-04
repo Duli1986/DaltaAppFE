@@ -27,10 +27,18 @@ class Car extends Component {
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
+
+    const carData = {
+      predchozi: this.state.predchozi,
+      novy: this.state.novy,
+      vysneny: this.state.vysneny
+    };
+
+    this.props.addCar(carData);
   };
 
   render() {
-    const { errors, predchozi, novy, vysneny, addCar } = this.props;
+    const { errors, predchozi, novy, vysneny } = this.props;
 
     return (
       <Col xs="5">
@@ -49,8 +57,7 @@ class Car extends Component {
                          name="predchozi"
                          id="select"
                          value={predchozi}
-                         onChange={addCar}
-                         error={errors.predchozi}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">BMW</option>
@@ -69,8 +76,7 @@ class Car extends Component {
                          name="novy"
                          id="select"
                          value={novy}
-                         onChange={addCar}
-                         error={errors.novy}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">BMW</option>
@@ -89,8 +95,7 @@ class Car extends Component {
                          name="vysneny"
                          id="select"
                          value={vysneny}
-                         onChange={addCar}
-                         error={errors.vysneny}
+                         onChange={this.onChange}
                   >
                     <option value="0">-----</option>
                     <option value="1">BMW</option>
@@ -111,21 +116,17 @@ class Car extends Component {
 Car.propTypes = {
   vysneny: PropTypes.string.isRequired,
   novy: PropTypes.string.isRequired,
-  predchozi: PropTypes.string.isRequired,
-  errors: PropTypes.object.isRequired
+  predchozi: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  novy: state.novy,
-  vysneny: state.vysneny,
-  predchozi: state.predchozi,
-  errors: state.errors
+
 });
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
    bindActionCreators({
     addCar,
   }, dispatch)
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(Car);
+export default connect(mapStateToProps, {addCar})(Car);

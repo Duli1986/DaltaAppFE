@@ -37,6 +37,28 @@ class PersonalData extends Component {
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
+
+    const personalData = {
+      pohlavi: this.state.pohlavi,
+      firstName: this.state.firstName,
+      surname: this.state.surname,
+      birthDate: this.state.birthDate,
+      phone: this.state.phone,
+      mail: this.state.mail,
+      ulice: this.state.ulice,
+      cp: this.state.cp,
+      psc: this.state.psc,
+      mesto: this.state.mesto,
+      narodnost: this.state.narodnost,
+      jazyk: this.state.jazyk,
+      bankAcount: this.state.bankAcount,
+      option1: this.state.option1,
+      option2: this.state.option2,
+      option3: this.state.option3,
+      option4: this.state.option4
+    };
+
+    this.props.addPersonalData(personalData);
   };
 
   render() {
@@ -297,29 +319,13 @@ PersonalData.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  pohlavi: state.pohlavi,
-  firstName: state.firstName,
-  surname: state.surname,
-  birthDate: state.birthDate,
-  phone: state.phone,
-  mail: state.mail,
-  ulice: state.ulice,
-  cp: state.cp,
-  psc: state.psc,
-  mesto: state.mesto,
-  narodnost: state.narodnost,
-  jazyk: state.jazyk,
-  bankAcount: state.novy,
-  option1: state.option1,
-  option2: state.option2,
-  option3: state.option3,
-  option4: state.option4
+
 });
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
   bindActionCreators({
     addPersonalData,
   }, dispatch)
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(PersonalData);
+export default connect(mapStateToProps, {addPersonalData})(PersonalData);

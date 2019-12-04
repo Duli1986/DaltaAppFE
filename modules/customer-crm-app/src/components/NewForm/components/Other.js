@@ -23,10 +23,20 @@ class Other extends Component {
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
+    console.log(1);
+
+    const otherData = {
+      rodinnyStav: this.state.rodinnyStav,
+      pocetDeti: this.state.pocetDeti,
+      konicky: this.state.konicky,
+      textareaNotesinput: this.state.textareaNotesinput
+    };
+
+    this.props.addOther(otherData);
   };
 
   render() {
-    const { rodinnyStav, pocetDeti, konicky } = this.props;
+    const { rodinnyStav, pocetDeti, konicky, textareaNotesinput } = this.props;
 
     return (
       <Col xs="5">
@@ -99,11 +109,14 @@ class Other extends Component {
                 </Col>
                 <Col xs="6" md="9">
                   <textarea type="poznamky"
-                            name="textarea-input"
+                            name="textareaNotesinput"
                             id="textarea-input"
                             rows="9"
                             cols="40"
-                            placeholder="Poznámky..."/>
+                            placeholder="Poznámky..."
+                            value={textareaNotesinput}
+                            onChange={this.onChange}
+                  />
                 </Col>
               </FormGroup>
             </Form>
@@ -117,19 +130,18 @@ class Other extends Component {
 Other.propTypes = {
   rodinnyStav: PropTypes.string.isRequired,
   pocetDeti: PropTypes.string.isRequired,
-  konicky: PropTypes.string.isRequired
+  konicky: PropTypes.string.isRequired,
+  textareaNotesinput: PropTypes.string
 };
 
 const mapStateToProps = (state) => ({
-  rodinnyStav: state.rodinnyStav,
-  pocetDeti: state.pocetDeti,
-  konicky: state.konicky
+
 });
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
   bindActionCreators({
     addOther,
   }, dispatch)
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(Other);
+export default connect(mapStateToProps, {addOther})(Other);

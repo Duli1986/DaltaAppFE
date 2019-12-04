@@ -27,18 +27,51 @@ const booleanReducer = compose(
 
 const initialState = {
   form: {
+    newCustomer: {
+      porCislo: dummyReducerZero,
+      oddeleni: stringReducer
+    },
+    personalData: {
+      pohlavi: "",
+      firstName: "",
+      surname: "",
+      birthDate: "",
+      phone: "",
+      mail: "",
+      ulice:"",
+      cp: "",
+      psc: "",
+      mesto: "",
+      narodnost: "",
+      jazyk: "",
+      bankAcount: "",
+      option1: "",
+      option2: "",
+      option3: "",
+      option4: ""
+    },
     company:{
       firma: stringReducer,
       poziceVeFirme: stringReducer,
       ico: stringReducer,
       dic: stringReducer,
       faktAdresa: stringReducer,
-      bankSpojeni: stringReducer,
+      bankSpojeni: stringReducer
     },
     car:{
       predchozi: stringReducer,
       novy: stringReducer,
-      vysneny: stringReducer,
+      vysneny: stringReducer
+    },
+    other: {
+      rodinnyStav: "",
+      pocetDeti: "",
+      konicky: ""
+    },
+    gdpr: {
+      checkbox2: "",
+      checkbox3: "",
+      textareaGrprInput: ""
     }
   }
 };

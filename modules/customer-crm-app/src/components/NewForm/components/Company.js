@@ -34,10 +34,21 @@ class Company extends Component {
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
+
+    const companyData = {
+      firma: this.state.firma,
+      poziceVeFirme: this.state.poziceVeFirme,
+      ico: this.state.ico,
+      dic: this.state.dic,
+      faktAdresa: this.state.faktAdresa,
+      bankSpojeni: this.state.bankSpojeni,
+    };
+
+    this.props.addCompany(companyData);
   };
 
   render() {
-    const { errors, firma, poziceVeFirme, ico, dic, faktAdresa, bankSpojeni, addCompany } = this.props;
+    const { firma, poziceVeFirme, ico, dic, faktAdresa, bankSpojeni } = this.props;
 
     return (
       <Col xs="5">
@@ -55,7 +66,7 @@ class Company extends Component {
                     name="firma"
                     placeholder="Firma"
                     value={firma}
-                    onChange={addCompany}
+                    onChange={this.onChange}
                     error={firma}
                   />
                 </Col>
@@ -68,7 +79,7 @@ class Company extends Component {
                     name="poziceVeFirme"
                     placeholder="Pozice ve firmě"
                     value={poziceVeFirme}
-                    onChange={addCompany}
+                    onChange={this.onChange}
                     error={poziceVeFirme}
                   />
                 </Col>
@@ -81,7 +92,7 @@ class Company extends Component {
                     name="ico"
                     placeholder="IČO"
                     value={ico}
-                    onChange={addCompany}
+                    onChange={this.onChange}
                     error={ico}
                   />
                 </Col>
@@ -94,7 +105,7 @@ class Company extends Component {
                     name="dic"
                     placeholder="DIČ"
                     value={dic}
-                    onChange={addCompany}
+                    onChange={this.onChange}
                     error={dic}
                   />
                 </Col>
@@ -107,7 +118,7 @@ class Company extends Component {
                     name="faktAdresa"
                     placeholder="Fakturační adresa"
                     value={faktAdresa}
-                    onChange={addCompany}
+                    onChange={this.onChange}
                     error={faktAdresa}
                   />
                 </Col>
@@ -120,7 +131,7 @@ class Company extends Component {
                     name="bankSpojeni"
                     placeholder="Bankovní spojení"
                     value={bankSpojeni}
-                    onChange={addCompany}
+                    onChange={this.onChange}
                     error={bankSpojeni}
                   />
                 </Col>
@@ -153,10 +164,10 @@ const mapStateToProps = (state) => ({
   errors: getErrors(state)
 });
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
   bindActionCreators({
     addCompany,
   }, dispatch)
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(Company);
+export default connect(mapStateToProps, {addCompany})(Company);

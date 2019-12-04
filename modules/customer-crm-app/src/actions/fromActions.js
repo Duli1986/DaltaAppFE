@@ -1,15 +1,15 @@
 import {assocNewFormData} from "../constants";
 
-export const addCar = (state, dispatch) => {
+export const addCar = (carData) => (dispatch) => {
   dispatch(
     assocNewFormData({
       createFrom: {
         form: {
           car: {
-            novy: state.novy,
-            vysneny: state.vysneny,
-            predchozi: state.predchozi,
-            errors: state.errors
+            novy: carData.novy,
+            vysneny: carData.vysneny,
+            predchozi: carData.predchozi,
+            errors: carData.errors
           }
         },
       },
@@ -18,19 +18,18 @@ export const addCar = (state, dispatch) => {
   );
 };
 
-export const addCompany = (state, dispatch) => {
+export const addCompany = (companyData) => (dispatch) => {
   dispatch(
     assocNewFormData({
       createForm: {
         form: {
           company: {
-            firma: state.firma,
-            poziceVeFirme: state.poziceVeFirme,
-            ico: state.ico,
-            dic: state.dic,
-            faktAdresa: state.faktAdresa,
-            bankSpojeni: state.bankSpojeni,
-            errors: state.errors
+            firma: companyData.firma,
+            poziceVeFirme: companyData.poziceVeFirme,
+            ico: companyData.ico,
+            dic: companyData.dic,
+            faktAdresa: companyData.faktAdresa,
+            bankSpojeni: companyData.bankSpojeni
           }
         }
       },
@@ -39,16 +38,16 @@ export const addCompany = (state, dispatch) => {
   );
 };
 
-export const addGdpr = (state, dispatch) => {
+export const addGdpr = (gdprData) => (dispatch) => {
   dispatch(
     assocNewFormData({
       createFrom: {
         form: {
           gdpr: {
-            novy: state.novy,
-            vysneny: state.vysneny,
-            predchozi: state.predchozi,
-            errors: state.errors
+            novy: gdprData.novy,
+            vysneny: gdprData.vysneny,
+            predchozi: gdprData.predchozi,
+            errors: gdprData.errors
           }
         }
       },
@@ -57,14 +56,14 @@ export const addGdpr = (state, dispatch) => {
   );
 };
 
-export const addNewCustomer = (state, dispatch) => {
+export const addNewCustomer = (newCustomerData) => (dispatch) => {
   dispatch(
     assocNewFormData({
       createFrom: {
         form: {
           newCustomer: {
-            porCislo: state.porCislo,
-            oddeleni: state.oddeleni
+            porCislo: newCustomerData.porCislo,
+            oddeleni: newCustomerData.oddeleni
           }
         }
       },
@@ -73,15 +72,15 @@ export const addNewCustomer = (state, dispatch) => {
   );
 };
 
-export const addOther = (state, dispatch) => {
+export const addOther = (otherData) => (dispatch) => {
   dispatch(
     assocNewFormData({
       createFrom: {
         form: {
           other: {
-            rodinnyStav: state.rodinnyStav,
-            pocetDeti: state.pocetDeti,
-            konicky: state.konicky
+            rodinnyStav: otherData.rodinnyStav,
+            pocetDeti: otherData.pocetDeti,
+            konicky: otherData.konicky
           }
         }
       },
@@ -90,29 +89,29 @@ export const addOther = (state, dispatch) => {
   );
 };
 
-export const addPersonalData = (state, dispatch) => {
+export const addPersonalData = (personalData) => (dispatch) => {
   dispatch(
     assocNewFormData({
       createFrom: {
         form: {
           personalData: {
-            pohlavi: state.pohlavi,
-            firstName: state.firstName,
-            surname: state.surname,
-            birthDate: state.birthDate,
-            phone: state.phone,
-            mail: state.mail,
-            ulice: state.ulice,
-            cp: state.cp,
-            psc: state.psc,
-            mesto: state.mesto,
-            narodnost: state.narodnost,
-            jazyk: state.jazyk,
-            bankAcount: state.novy,
-            option1: state.option1,
-            option2: state.option2,
-            option3: state.option3,
-            option4: state.option4
+            pohlavi: personalData.pohlavi,
+            firstName: personalData.firstName,
+            surname: personalData.surname,
+            birthDate: personalData.birthDate,
+            phone: personalData.phone,
+            mail: personalData.mail,
+            ulice: personalData.ulice,
+            cp: personalData.cp,
+            psc: personalData.psc,
+            mesto: personalData.mesto,
+            narodnost: personalData.narodnost,
+            jazyk: personalData.jazyk,
+            bankAcount: personalData.novy,
+            option1: personalData.option1,
+            option2: personalData.option2,
+            option3: personalData.option3,
+            option4: personalData.option4
           }
         }
       },

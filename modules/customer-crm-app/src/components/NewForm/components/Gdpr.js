@@ -23,6 +23,14 @@ class Gdpr extends Component {
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
+
+    const gdprData = {
+      checkbox2: this.state.checkbox2,
+      checkbox3: this.state.checkbox3,
+      textareaGrprInput: this.state.textareaGrprInput
+    };
+
+    this.props.addGdpr(gdprData);
   };
 
   render() {
@@ -97,10 +105,10 @@ const mapStateToProps = (state) => ({
   textareaGrprInput: state.textareaGrprInput
 });
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
   bindActionCreators({
 
   }, dispatch)
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(Gdpr);
+export default connect(mapStateToProps, {addGdpr})(Gdpr);

@@ -22,6 +22,13 @@ class NewCustomer extends Component {
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
+
+    const newCustomerData = {
+      porCislo: this.state.porCislo,
+      oddeleni: this.state.oddeleni
+    };
+
+    this.props.addNewCustomer(newCustomerData);
   };
 
   render() {
@@ -75,19 +82,18 @@ class NewCustomer extends Component {
 }
 
 NewCustomer.propTypes = {
-  porCislo: PropTypes.string.isRequired,
+  porCislo: PropTypes.number.isRequired,
   oddeleni: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  porCislo: state.novy,
-  oddeleni: state.vysneny
+
 });
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
   bindActionCreators({
     addNewCustomer,
   }, dispatch)
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewCustomer);
+export default connect(mapStateToProps, {addNewCustomer})(NewCustomer);
