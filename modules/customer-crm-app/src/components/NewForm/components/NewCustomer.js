@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {addNewCustomer} from "../../../actions/fromActions";
 import {connect} from "react-redux";
+import {getOddeleni, getPorCislo} from "../../../selectors/newCustomer";
 
 class NewCustomer extends Component {
   state = {
@@ -87,7 +88,8 @@ NewCustomer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-
+  porCislo: getPorCislo(state),
+  oddeleni: getOddeleni(state)
 });
 
 /*const mapDispatchToProps = (dispatch) => {

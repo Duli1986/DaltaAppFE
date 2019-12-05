@@ -16,7 +16,7 @@ export const getNewFormData = (propName) =>
     prop(propName)
   );
 
-export const getCreateFormData = o(defaultToEmptyObject, getNewFormData('car'));
+export const getCreateFormData = o(defaultToEmptyObject, getNewFormData('newCustomer'));
 
 /**
  * Get form data from createForm
@@ -30,22 +30,12 @@ export const getCreateFormData = o(defaultToEmptyObject, getNewFormData('car'));
  */
 
 
-export const getPredchozi = createSelector(
+export const getPorCislo = createSelector(
   getCreateFormData,
-  prop('predchozi')
+  prop('porCislo')
 );
 
-export const getNovy = createSelector(
+export const getOddeleni = createSelector(
   getCreateFormData,
-  prop('novy')
-);
-
-export const getVysneny = createSelector(
-  getCreateFormData,
-  prop('vysneny')
-);
-
-export const getErrors = createSelector(
-  getCreateFormData,
-  prop('errors')
+  prop('oddeleni')
 );

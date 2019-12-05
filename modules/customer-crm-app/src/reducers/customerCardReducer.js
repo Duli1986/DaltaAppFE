@@ -26,7 +26,9 @@ const booleanReducer = compose(
 
 
 const initialState = {
-  clientCard: {}
+  clientCard: {
+
+  }
 };
 
 export default function(state = initialState, action) {

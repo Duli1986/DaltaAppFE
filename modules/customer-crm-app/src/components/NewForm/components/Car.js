@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {addCar} from "../../../actions/fromActions";
+import {getNovy, getPredchozi, getVysneny} from "../../../selectors/car";
 
 class Car extends Component {
   constructor() {
@@ -120,7 +121,9 @@ Car.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-
+  vysneny: getVysneny(state),
+  novy: getNovy(state),
+  predchozi: getPredchozi(state)
 });
 
 /*const mapDispatchToProps = (dispatch) => {

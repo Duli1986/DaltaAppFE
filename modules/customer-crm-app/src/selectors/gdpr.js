@@ -16,7 +16,7 @@ export const getNewFormData = (propName) =>
     prop(propName)
   );
 
-export const getCreateFormData = o(defaultToEmptyObject, getNewFormData('car'));
+export const getCreateFormData = o(defaultToEmptyObject, getNewFormData('gdpr'));
 
 /**
  * Get form data from createForm
@@ -30,22 +30,17 @@ export const getCreateFormData = o(defaultToEmptyObject, getNewFormData('car'));
  */
 
 
-export const getPredchozi = createSelector(
+export const getCheckboxTwo = createSelector(
   getCreateFormData,
-  prop('predchozi')
+  prop('checkbox2')
 );
 
-export const getNovy = createSelector(
+export const getCheckboxThree = createSelector(
   getCreateFormData,
-  prop('novy')
+  prop('checkbox3')
 );
 
-export const getVysneny = createSelector(
+export const getTextareaGrprInput = createSelector(
   getCreateFormData,
-  prop('vysneny')
-);
-
-export const getErrors = createSelector(
-  getCreateFormData,
-  prop('errors')
+  prop('textareaGrprInput')
 );

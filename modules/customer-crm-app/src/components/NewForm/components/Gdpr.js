@@ -13,6 +13,11 @@ import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {addGdpr} from "../../../actions/fromActions";
 import {connect} from "react-redux";
+import {
+  getCheckboxThree,
+  getCheckboxTwo,
+  getTextareaGrprInput
+} from "../../../selectors/gdpr";
 
 class Gdpr extends Component {
   state = {
@@ -100,9 +105,9 @@ Gdpr.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  checkbox2: state.checkbox2,
-  checkbox3: state.checkbox3,
-  textareaGrprInput: state.textareaGrprInput
+  checkbox2: getCheckboxTwo(state),
+  checkbox3: getCheckboxThree(state),
+  textareaGrprInput: getTextareaGrprInput(state)
 });
 
 /*const mapDispatchToProps = (dispatch) => {

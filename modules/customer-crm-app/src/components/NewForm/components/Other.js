@@ -13,6 +13,11 @@ import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {addOther} from "../../../actions/fromActions";
 import {connect} from "react-redux";
+import {
+  getKonicky,
+  getPocetDeti,
+  getRodinnyStav, gettexTareaNotesinput
+} from "../../../selectors/other";
 
 class Other extends Component {
   state = {
@@ -135,7 +140,10 @@ Other.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-
+  rodinnyStav: getRodinnyStav(state),
+  pocetDeti: getPocetDeti(state),
+  konicky: getKonicky(state),
+  textareaNotesinput: gettexTareaNotesinput(state)
 });
 
 /*const mapDispatchToProps = (dispatch) => {
