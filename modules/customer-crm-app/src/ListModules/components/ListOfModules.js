@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import Button from "reactstrap/es/Button";
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 import { connect } from 'react-redux';
-import './App.scss';
 
 class ListOfModules extends Component {
 
@@ -13,16 +12,6 @@ class ListOfModules extends Component {
       showComponent: false,
       disable: false
     };
-    this.routeChangeCrm = this.routeChangeCrm.bind(this);
-    this.routeChangeSklady = this.routeChangeSklady.bind(this);
-  }
-
-  routeChangeCrm() {
-    this.props.history.push('/crm');
-  }
-
-  routeChangeSklady() {
-    this.props.history.push('/newForm');
   }
 
   render() {
@@ -31,29 +20,43 @@ class ListOfModules extends Component {
         <Col>
           <Row>
             <Col>
-              <Button onClick={this.routeChangeCrm} color="warning">CRM</Button>
+              <Link to="/crm">
+              <Button color="warning">CRM</Button>
+              </Link>
             </Col>
             <Col>
-              <Button color="danger" onClick={this.routeChangeSklady}>SKLAD</Button>
+              <Link to="/newForm">
+              <Button color="danger">SKLAD</Button>
+              </Link>
             </Col>
             <Col>
-              <Button color="danger" onClick={this.routeChangeSklady}>ZAKÁZKY</Button>
+              <Link to="/newForm">
+              <Button color="danger">ZAKÁZKY</Button>
+              </Link>
             </Col>
             <Col>
-              <Button color="danger" onClick={this.routeChangeSklady}>PERSONALISTIKA</Button>
+              <Link to="/newForm">
+              <Button color="danger" >PERSONALISTIKA</Button>
+              </Link>
             </Col>
           </Row>
         </Col>
         <Col>
           <Row>
             <Col>
-              <Button size="massive" color="danger">ÚČETNICTVÍ</Button>
+              <Link to="/newForm">
+              <Button color="danger">ÚČETNICTVÍ</Button>
+              </Link>
             </Col>
             <Col>
-              <Button color="success" onClick={this.routeChangeCrm}>ŘÍZENÍ</Button>
+              <Link to="/newForm">
+              <Button color="success">ŘÍZENÍ</Button>
+              </Link>
             </Col>
             <Col>
-              <Button size='massive' color="danger" onClick={this.routeChangeSklady}>NASTAVENÍ</Button>
+              <Link to="/newForm">
+              <Button color="danger" >NASTAVENÍ</Button>
+              </Link>
             </Col>
           </Row>
         </Col>
