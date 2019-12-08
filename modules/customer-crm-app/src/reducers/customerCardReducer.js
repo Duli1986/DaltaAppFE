@@ -27,7 +27,12 @@ const booleanReducer = compose(
 
 const initialState = {
   clientCard: {
-
+      search: {
+        hledat: stringReducer,
+        stav: stringReducer,
+        odDoby: stringReducer,
+        doDoby: stringReducer,
+      }
   }
 };
 

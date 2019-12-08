@@ -11,7 +11,6 @@ import {
 } from "reactstrap";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import {addCar} from "../../../actions/fromActions";
 import {getNovy, getPredchozi, getVysneny} from "../../../selectors/car";
 
@@ -39,7 +38,7 @@ class Car extends Component {
   };
 
   render() {
-    const { errors, predchozi, novy, vysneny } = this.props;
+    const { predchozi, novy, vysneny } = this.props;
 
     return (
       <Col xs="5">
@@ -125,11 +124,5 @@ const mapStateToProps = (state) => ({
   novy: getNovy(state),
   predchozi: getPredchozi(state)
 });
-
-/*const mapDispatchToProps = (dispatch) => {
-   bindActionCreators({
-    addCar,
-  }, dispatch)
-};*/
 
 export default connect(mapStateToProps, {addCar})(Car);

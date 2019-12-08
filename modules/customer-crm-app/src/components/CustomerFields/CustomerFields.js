@@ -1,35 +1,38 @@
 import React, {Component} from 'react';
 import {
-  Card,
-  CardBody,
-  CardHeader,
   Col,
-  Form,
   FormGroup,
   Input,
   Label, Row
 } from "reactstrap";
 import {bindActionCreators} from "redux";
 import { connect } from 'react-redux';
+import {searchCustomer} from "../../actions/customerFieldsAction";
 
 class CustomerFields extends Component {
   state = {
     hledat: '',
     stav: '',
     odDoby: '',
-    doDoby: '',
+    doDoby: ''
   };
 
   onChange = (e) => {
-    this.setState({
-      hledat: e.target.hledat,
-      stav: e.target.stav,
-      odDoby: e.target.odDoby,
-      doDoby: e.target.doDoby,
-    })
+    this.setState({[e.target.name]: e.target.value});
+
+    const searchData = {
+      hledat: this.state.hledat,
+      stav: this.state.stav,
+      odDoby: this.state.odDoby,
+      doDoby: this.state.doDoby
+    };
+
+    this.props.searchCustomer(searchData);
   };
 
   render() {
+    const { hledat, stav, odDoby, doDoby } = this.props;
+
     return (
       <Row>
         <Col md="5">
@@ -45,7 +48,7 @@ class CustomerFields extends Component {
                   bsSize="sl"
                   name="hledat"
                   placeholder="Hledat"
-                  value={this.state.hledat}
+                  value={hledat}
                   onChange={this.onChange}
                 />
               </FormGroup>
@@ -55,7 +58,7 @@ class CustomerFields extends Component {
                 <Input type="select"
                        name="stav"
                        id="select"
-                       value={this.state.stav}
+                       value={stav}
                        onChange={this.onChange}
                 >
                   <option value="0">-----</option>
@@ -80,7 +83,7 @@ class CustomerFields extends Component {
                   bsSize="sl"
                   name="odDoby"
                   placeholder="Od"
-                  value={this.state.odDoby}
+                  value={odDoby}
                   onChange={this.onChange}
                 />
               </FormGroup>
@@ -91,7 +94,7 @@ class CustomerFields extends Component {
                   bsSize="sl"
                   name="doDoby"
                   placeholder="Do"
-                  value={this.state.doDoby}
+                  value={doDoby}
                   onChange={this.onChange}
                 />
               </FormGroup>
@@ -103,13 +106,6 @@ class CustomerFields extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators(
-    {
-
-    },
-    dispatch
-  );
 
 const mapStateToProps = (state) => {
     return {
@@ -120,4 +116,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapDispatchToProps, mapStateToProps)(CustomerFields);
+export default connect(mapStateToProps, {searchCustomer} )(CustomerFields);
