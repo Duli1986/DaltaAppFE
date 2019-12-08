@@ -22,10 +22,6 @@ class CustomerButtons extends Component {
     });
   }
 
- /* routeChange() {
-    this.props.history.push('/NewForm');
-  }*/
-
   render() {
     return (
       <div>
