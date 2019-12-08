@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Button from "reactstrap/es/Button";
-import {BrowserRouter, Link, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 import { connect } from 'react-redux';
+import './App.scss';
 
 class ListOfModules extends Component {
 
@@ -19,24 +20,20 @@ class ListOfModules extends Component {
   routeChangeCrm() {
     this.props.history.push('/crm');
   }
+
   routeChangeSklady() {
     this.props.history.push('/newForm');
   }
 
   render() {
     return (
-      <div>
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }} >
+      <div className="center">
         <Col>
           <Row>
             <Col>
               <Button onClick={this.routeChangeCrm} color="warning">CRM</Button>
             </Col>
-            <Col >
+            <Col>
               <Button color="danger" onClick={this.routeChangeSklady}>SKLAD</Button>
             </Col>
             <Col>
@@ -47,26 +44,19 @@ class ListOfModules extends Component {
             </Col>
           </Row>
         </Col>
-        </div>
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}>
+        <Col>
+          <Row>
             <Col>
-              <Row>
-                <Col>
-                  <Button  size="massive" color="danger">ÚČETNICTVÍ</Button>
-                </Col>
-                <Col >
-                  <Button color="success" onClick={this.routeChangeCrm}>ŘÍZENÍ</Button>
-                </Col>
-                <Col>
-                  <Button  size='massive' color="danger" onClick={this.routeChangeSklady}>NASTAVENÍ</Button>
-                </Col>
-              </Row>
+              <Button size="massive" color="danger">ÚČETNICTVÍ</Button>
             </Col>
-        </div>
+            <Col>
+              <Button color="success" onClick={this.routeChangeCrm}>ŘÍZENÍ</Button>
+            </Col>
+            <Col>
+              <Button size='massive' color="danger" onClick={this.routeChangeSklady}>NASTAVENÍ</Button>
+            </Col>
+          </Row>
+        </Col>
       </div>
     );
   }
