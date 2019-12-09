@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {Badge, Card, CardBody, CardHeader, Col, Row, Table} from 'reactstrap';
 
 import customerData from '../constants/CustomerData'
-import {CustomerFields} from "../../CustomerFields";
+import {CustomerFields} from "../../CustomerFields/components";
 
 function CustomerRow(props) {
   const customer = props.customer
