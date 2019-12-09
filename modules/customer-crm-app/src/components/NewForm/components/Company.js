@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
-import { addCompany } from "../../../actions/fromActions";
+import { addCompany } from "../actions/fromActions";
 import {connect} from "react-redux";
 import {
   getBankSpojeni,
@@ -19,7 +19,7 @@ import {
   getFrima,
   getIco,
   getPoziceVeFirme
-} from "../../../selectors/company";
+} from "../selectors/company";
 
 class Company extends Component {
   state = {

@@ -11,8 +11,8 @@ import {
 } from "reactstrap";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {addCar} from "../../../actions/fromActions";
-import {getNovy, getPredchozi, getVysneny} from "../../../selectors/car";
+import {addCar} from "../actions/fromActions";
+import {getNovy, getPredchozi, getVysneny} from "../selectors/car";
 
 class Car extends Component {
   constructor() {

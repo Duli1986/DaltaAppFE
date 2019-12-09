@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
-import { addPersonalData} from "../../../actions/fromActions";
+import { addPersonalData} from "../actions/fromActions";
 import {connect} from "react-redux";
 
 class PersonalData extends Component {

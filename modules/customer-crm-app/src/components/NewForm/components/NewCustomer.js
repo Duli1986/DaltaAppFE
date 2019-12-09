@@ -11,9 +11,9 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
-import {addNewCustomer} from "../../../actions/fromActions";
+import {addNewCustomer} from "../actions/fromActions";
 import {connect} from "react-redux";
-import {getOddeleni, getPorCislo} from "../../../selectors/newCustomer";
+import {getOddeleni, getPorCislo} from "../selectors/newCustomer";
 
 class NewCustomer extends Component {
   state = {

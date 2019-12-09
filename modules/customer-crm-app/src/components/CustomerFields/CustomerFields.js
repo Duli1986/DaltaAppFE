@@ -7,7 +7,7 @@ import {
 } from "reactstrap";
 import {bindActionCreators} from "redux";
 import { connect } from 'react-redux';
-import {searchCustomer} from "../../actions/customerFieldsAction";
+import {searchCustomer} from "./actions/customerFieldsAction";
 
 class CustomerFields extends Component {
   state = {

@@ -11,13 +11,13 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
-import {addGdpr} from "../../../actions/fromActions";
+import {addGdpr} from "../actions/fromActions";
 import {connect} from "react-redux";
 import {
   getCheckboxThree,
   getCheckboxTwo,
   getTextareaGrprInput
-} from "../../../selectors/gdpr";
+} from "../selectors/gdpr";
 
 class Gdpr extends Component {
   state = {

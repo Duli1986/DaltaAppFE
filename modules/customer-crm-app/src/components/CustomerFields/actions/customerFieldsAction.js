@@ -1,4 +1,4 @@
-import {assocNewFormData} from "../constants";
+import {assocNewFormData} from "../../../constants";
 
 
 export const searchCustomer = (searchCustomer) => (dispatch) => {

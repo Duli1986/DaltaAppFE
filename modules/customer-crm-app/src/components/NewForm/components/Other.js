@@ -11,13 +11,13 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
-import {addOther} from "../../../actions/fromActions";
+import {addOther} from "../actions/fromActions";
 import {connect} from "react-redux";
 import {
   getKonicky,
   getPocetDeti,
   getRodinnyStav, gettexTareaNotesinput
-} from "../../../selectors/other";
+} from "../selectors/other";
 
 class Other extends Component {
   state = {
