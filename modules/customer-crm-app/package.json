@@ -2,7 +2,7 @@
   "name": "@coreui/coreui-free-react-admin-template",
   "version": "2.6.0",
   "description": "CoreUI React Open Source Bootstrap 4 Admin Template",
-  "homepage": "https://coreui.io",
+  "homepage": "duli1986.github.io/DaltaAppFE/",
   "license": "MIT",
   "private": true,
   "repository": {
@@ -51,6 +51,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "test:cov": "npm test -- --coverage --watchAll=false",
     "test:debug": "react-scripts --inspect-brk test --runInBand",
