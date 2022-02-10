@@ -23,7 +23,7 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "flag-icon-css": "^3.4.5",
     "font-awesome": "^4.7.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "passport": "^0.4.0",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
